@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.background-rect {
+  background-image: url('../../public/images/background.svg');
+  background-repeat:space repeat-y;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#hubspot-messages-iframe-container {
+  position: absolute !important;
+  bottom:0 !important;
+  right: 0 !important;
+  z-index: 1000 !important;
+}
