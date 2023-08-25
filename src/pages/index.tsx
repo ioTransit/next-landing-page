@@ -1,8 +1,18 @@
 import Link from "next/link";
 import Image from "next/image";
+import Head from "next/head";
 
 export default function HomePage() {
   return (
+    <>
+    <Head>
+      <title>TransitChat</title>
+      <meta name="description">
+        TransitChat is a platform that makes it easier for transit 
+        agencies to communicate with their riders and improve 
+        their services by organizing issues in one place.
+      </meta>
+    </Head>
     <div className="relative sm:pt-8">
       <div className="mx-auto max-w-7xl">
         <div className="relative sm:rounded-2xl">
@@ -123,5 +133,6 @@ export default function HomePage() {
         </div>
       </div>
     </div>
+    </>
   );
 }
