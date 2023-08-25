@@ -1,5 +1,5 @@
 import React, { type HTMLInputTypeAttribute } from "react";
-import { useForm } from "react-hook-form";
+import { type FieldError, type FieldErrorsImpl, type Merge, useForm } from "react-hook-form";
 
 export const ValidatedInput = ({
   name,
@@ -12,9 +12,9 @@ export const ValidatedInput = ({
   placeholder?: string;
   type: HTMLInputTypeAttribute;
   label?: string;
-  error?: string;
+  error?: string | FieldError | Merge<FieldError, FieldErrorsImpl<any>> | undefined
 }) => {
-  const { register, formState: { errors } } = useForm();
+  const { register } = useForm();
 
 
   return (
@@ -30,7 +30,7 @@ export const ValidatedInput = ({
         placeholder={placeholder ?? ""}
         className="h-6 p-6 w-full border rounded-md"
       />
-      {errors[name] && <p className="text-red-500 px-3">{JSON.stringify(errors[name]?.message)}</p>}
+      {error && typeof error === "string" && <p className="text-red-500 px-3">{error}</p>}
     </div>
   );
 };

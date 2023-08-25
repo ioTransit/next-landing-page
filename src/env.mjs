@@ -13,7 +13,10 @@ const server = z.object({
  * built with invalid env vars. To expose them to the client, prefix them with `NEXT_PUBLIC_`.
  */
 const client = z.object({
-  // NEXT_PUBLIC_CLIENTVAR: z.string().min(1),
+  GHOST_URL: z.string(),
+  GHOST_ADMIN_KEY: z.string(),
+  GHOST_CONTENT_KEY: z.string(),
+  RECAPTCHA: z.string(),
 });
 
 /**
@@ -24,6 +27,10 @@ const client = z.object({
  */
 const processEnv = {
   NODE_ENV: process.env.NODE_ENV,
+  GHOST_URL: process.env.NEXT_PUBLIC_GHOST_URL,
+  GHOST_ADMIN_KEY: process.env.NEXT_PUBLIC_GHOST_ADMIN_KEY,
+  GHOST_CONTENT_KEY: process.env.NEXT_PUBLIC_GHOST_CONTENT_KEY,
+  RECAPTCHA: process.env.NEXT_PUBLIC_RECAPTCHA,
   // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
 };
 
@@ -54,7 +61,7 @@ if (!skip) {
   if (parsed.success === false) {
     console.error(
       "❌ Invalid environment variables:",
-      parsed.error.flatten().fieldErrors,
+      parsed.error.flatten().fieldErrors
     );
     throw new Error("Invalid environment variables");
   }
@@ -68,11 +75,12 @@ if (!skip) {
         throw new Error(
           process.env.NODE_ENV === "production"
             ? "❌ Attempted to access a server-side environment variable on the client"
-            : `❌ Attempted to access server-side environment variable '${prop}' on the client`,
+            : `❌ Attempted to access server-side environment variable '${prop}' on the client`
         );
       return target[/** @type {keyof typeof target} */ (prop)];
     },
   });
 }
+
 
 export { env };

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 
-export default function loader() {
+export default function HomePage() {
   return (
     <div className="relative sm:pt-8">
       <div className="mx-auto max-w-7xl">

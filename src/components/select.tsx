@@ -2,6 +2,7 @@ import { Combobox, Transition } from "@headlessui/react";
 import clsx from "clsx";
 import { Icon } from "./icon";
 import { Fragment, useState } from "react";
+import { useForm } from "react-hook-form";
 
 export type SelectItem = { [k: string]: string | number; name: string };
 
@@ -44,6 +45,8 @@ export function Select({
   value?: SelectItem;
   label?: string;
 }) {
+  const { register, formState: { errors } } = useForm();
+
   const [selected, setSelected] = useState(
     value
       ? options.find((item) => value.name === item.name) ?? undefined
@@ -69,7 +72,7 @@ export function Select({
 
   return (
     <div>
-      <input name={name} hidden readOnly value={JSON.stringify(selected)} />
+      <input {...register(name)} hidden />
       <label htmlFor="agency" className="mx-2 pb-2">{label}</label>
       <Combobox
         value={selected}
