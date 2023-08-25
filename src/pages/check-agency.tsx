@@ -127,11 +127,11 @@ export default function JoinPage() {
     <>
       <Head>
         <title>TransitChat</title>
-        <meta name="description">
-          TransitChat is a platform that makes it easier for transit 
-          agencies to communicate with their riders and improve 
-          their services by organizing issues in one place.
-        </meta>
+        <meta name="description"
+          content="TransitChat is a platform that makes it easier for transit 
+        agencies to communicate with their riders and improve 
+        their services by organizing issues in one place."
+        />
       </Head>
       <div className="h-full w-full relative">
         <ToastContainer

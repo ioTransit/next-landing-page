@@ -15,7 +15,6 @@ export const Header = () => {
       </Link>
       <div className="gap-5 flex pb-6">
         <Link href="/">Home</Link>
-        <Link href="#about">About</Link>
         <Link href={"https://blog.transit.chat/"}>Blog</Link>
       </div>
     </div>
