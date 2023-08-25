@@ -29,9 +29,13 @@ export default function HomePage() {
             <div className="relative px-4 pb-8 pt-16 sm:px-6 sm:pb-14 sm:pt-24 lg:px-8 lg:pb-20 lg:pt-32">
               <h1 className="text-left text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
                 <span className="block text-tcOrange drop-shadow-md">
+                  Magically turn rider feedback to
+                  focused goals to improve service
+                </span>
+                {/* <span className="block text-tcOrange drop-shadow-md">
                   Listen to your rider’s complaints and communicate about
                   solutions
-                </span>
+                </span> */}
               </h1>
               <p className="mt-6 max-w-lg text-left text-2xl text-gray-900 sm:max-w-3xl">
                 TransitChat makes it simple for transit agencies to document your
