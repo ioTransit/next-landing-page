@@ -59,7 +59,7 @@ export default function HomePage() {
           >
             <div className="w-full sm:w-3/4 mx-auto lg:w-1/4 gap-3 grid">
               <h3 className="font-extrabold text-3xl text-center">Customer Service</h3>
-              <p>TransitChat has all the tools you need to document your riders' complaints and communicate about solutions.</p>
+              <p>{"TransitChat has all the tools you need to document your riders' complaints and communicate about solutions."}</p>
             </div>
             <h3 className="text-6xl mx-auto rotate-90 lg:rotate-0">👉</h3>
             <div className="w-full sm:w-3/4 mx-auto lg:w-1/4 gap-3 grid">
