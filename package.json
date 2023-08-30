@@ -15,6 +15,7 @@
     "@tryghost/content-api": "^1.11.16",
     "axios": "^1.4.0",
     "clsx": "^2.0.0",
+    "fs": "^0.0.1-security",
     "next": "^13.2.4",
     "react": "18.2.0",
     "react-cookie-consent": "^8.0.1",
