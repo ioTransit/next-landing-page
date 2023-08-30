@@ -125,7 +125,7 @@ export default function HomePage() {
               <h2 className="text-3xl font-bold text-center">
                 Sign up for Early Access
               </h2>
-              <div className="flex justify-center m-auto">
+              <div className="flex justify-center m-auto mb-20">
                 <Link
                   href={"/check-agency"}
                   className="h-16 drop-shadow-md bg-tcOrange flex transition-colors items-center justify-center rounded-md border border-transparent px-4 py-3 text-xl font-medium text-white shadow-sm hover:bg-yellow-400 sm:px-8"
