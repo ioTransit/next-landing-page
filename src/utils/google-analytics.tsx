@@ -20,7 +20,6 @@ export const usePageView = () => {
     const cookieStore = cookies()
     const ga = cookieStore.get('google-analytics')
     if (!ga) return;
-    console.log('tracking')
     ReactGA.send({ hitType: "pageview", page: "window.location.pathname + window.location.search", title: "Page View" });
   }, [allowTracking, location]);
 };
