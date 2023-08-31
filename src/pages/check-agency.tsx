@@ -91,9 +91,7 @@ export default function JoinPage() {
   const [_agencies, setAgencies] = useState<typeof agencies | null>(null);
   const [agency, setAgency] = useState<SelectItem | null>(null);
 
-  const { handleSubmit, formState: { errors }, register } = useForm();
-  console.log(env.NEXT_PUBLIC_RECAPTCHA)
-  const onSubmit: SubmitHandler<CheckValidatorType> = async (data) => {
+  const { handleSubmit, formState: { errors }, register } = useForm();  const onSubmit: SubmitHandler<CheckValidatorType> = async (data) => {
     try {
 
       const resp = await axios.post("https://hook.us1.make.com/3rd3kck1q73jx0pq5ddu2nrygkrnx63a", {
