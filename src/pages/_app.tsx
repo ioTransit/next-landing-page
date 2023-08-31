@@ -1,26 +1,14 @@
 import { type NextComponentType, type AppType, type NextPageContext } from "next/dist/shared/lib/utils";
 import Link from "next/link";
 import Image from "next/image";
-import { createContext, useContext } from "react";
 import CookieConsent from "react-cookie-consent";
-import "~/styles/globals.css";
-import 'react-toastify/dist/ReactToastify.css';
 import { Footer } from "~/components/footer";
 import { CookiesProvider } from 'react-cookie';
 import { useCookies } from 'react-cookie';
 import Script from "next/script";
+import "~/styles/globals.css";
+import 'react-toastify/dist/ReactToastify.css';
 
-export type LandingContextType = {
-  allowTracking: boolean;
-  setAllowTracking: (c: boolean) => void;
-};
-
-const LandingContext = createContext<LandingContextType>({
-  allowTracking: false,
-  setAllowTracking: (v: boolean) => { return {} },
-});
-
-export const useGlobalContext = () => useContext(LandingContext);
 
 const Page = ({ Component, pageProps }: { Component: NextComponentType<NextPageContext, any, any>; pageProps: any }) => {
   const [cookies] = useCookies();
