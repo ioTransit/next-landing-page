@@ -1,4 +1,4 @@
-import { type AppType } from "next/dist/shared/lib/utils";
+import { type NextComponentType, type AppType, type NextPageContext } from "next/dist/shared/lib/utils";
 import Link from "next/link";
 import Image from "next/image";
 import { createContext, useContext, useEffect } from "react";
@@ -8,8 +8,8 @@ import "~/styles/globals.css";
 import 'react-toastify/dist/ReactToastify.css';
 import { Footer } from "~/components/footer";
 import { usePathname } from "next/navigation";
-
-
+import { CookiesProvider } from 'react-cookie';
+import { useCookies } from 'react-cookie';
 
 export type LandingContextType = {
   allowTracking: boolean;
@@ -23,27 +23,23 @@ const LandingContext = createContext<LandingContextType>({
 
 export const useGlobalContext = () => useContext(LandingContext);
 
-
-const MyApp: AppType = ({ Component, pageProps }) => {
+const Page = ({ Component, pageProps }: { Component: NextComponentType<NextPageContext, any, any>; pageProps: any }) => {
   const location = usePathname();
+  const [cookies] = useCookies();
 
   // const ga = cookies().get('google-analytics')
   // const ga = cookieStore.get('google-analytics')
-  const checkConsent = async () => {
-    const { ga } = await fetch('/api/consent').then(res => res.json()) as { ga: string }
-    if (!!ga) {
-      console.log('tracking')
+  const checkConsent = () => {
+    const ga = cookies['google-analytics'] // eslint-disable-line
+    if (ga) {
       ReactGA.send({ hitType: "pageview", page: "window.location.pathname + window.location.search", title: "Page View" });
-    } else {
-      console.log(ga, 'not tracking')
-      return false
     }
   }
 
 
   useEffect(() => {
     checkConsent() // eslint-disable-line
-  }, [location]);
+  }, [location, cookies]); // eslint-disable-line
 
   // usePageView();
   return (
@@ -83,6 +79,15 @@ const MyApp: AppType = ({ Component, pageProps }) => {
       <Footer />
     </main>
   );
+
+}
+
+const MyApp: AppType = ({ Component, pageProps }) => {
+  return (
+    <CookiesProvider>
+      <Page pageProps={pageProps} Component={Component} />
+    </CookiesProvider>
+  )
 };
 
 export default MyApp;
