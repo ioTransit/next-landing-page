@@ -9,6 +9,7 @@ import { agencies } from "~/config";
 import axios from "axios";
 import Head from "next/head";
 import { env } from "~/env.mjs";
+import Script from "next/script";
 
 export const meta = () => [
   { title: "TransitChat - Let's make transit better" },
@@ -91,7 +92,7 @@ export default function JoinPage() {
   const [_agencies, setAgencies] = useState<typeof agencies | null>(null);
   const [agency, setAgency] = useState<SelectItem | null>(null);
 
-  const { handleSubmit, formState: { errors }, register } = useForm();  const onSubmit: SubmitHandler<CheckValidatorType> = async (data) => {
+  const { handleSubmit, formState: { errors }, register } = useForm(); const onSubmit: SubmitHandler<CheckValidatorType> = async (data) => {
     try {
 
       const resp = await axios.post("https://hook.us1.make.com/3rd3kck1q73jx0pq5ddu2nrygkrnx63a", {
@@ -134,6 +135,14 @@ export default function JoinPage() {
         their services by organizing issues in one place."
         />
       </Head>
+      <Script async src="https://www.googletagmanager.com/gtag/js?id=G-1G0WGN2N3Q"></Script>
+      <Script id='gtag'>{`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+  
+          gtag('config', 'G-1G0WGN2N3Q');
+        `}</Script>
       <div className="h-full w-full relative pb-20">
         <ToastContainer
           position="bottom-right"
