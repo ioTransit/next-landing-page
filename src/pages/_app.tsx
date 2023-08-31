@@ -1,8 +1,7 @@
 import { type AppType } from "next/dist/shared/lib/utils";
 import Link from "next/link";
 import Image from "next/image";
-import { Icon } from "~/components/icon";
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext } from "react";
 import CookieConsent from "react-cookie-consent";
 import { usePageView } from "~/utils/google-analytics";
 
