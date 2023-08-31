@@ -9,7 +9,6 @@ import { agencies } from "~/config";
 import axios from "axios";
 import Head from "next/head";
 import { env } from "~/env.mjs";
-import Script from "next/script";
 
 export const meta = () => [
   { title: "TransitChat - Let's make transit better" },
@@ -135,14 +134,6 @@ export default function JoinPage() {
         their services by organizing issues in one place."
         />
       </Head>
-      <Script async src="https://www.googletagmanager.com/gtag/js?id=G-1G0WGN2N3Q"></Script>
-      <Script id='gtag'>{`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-  
-          gtag('config', 'G-1G0WGN2N3Q');
-        `}</Script>
       <div className="h-full w-full relative pb-20">
         <ToastContainer
           position="bottom-right"

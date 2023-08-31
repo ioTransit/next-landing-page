@@ -10,6 +10,7 @@ import { Footer } from "~/components/footer";
 import { usePathname } from "next/navigation";
 import { CookiesProvider } from 'react-cookie';
 import { useCookies } from 'react-cookie';
+import Script from "next/script";
 
 export type LandingContextType = {
   allowTracking: boolean;
@@ -24,22 +25,22 @@ const LandingContext = createContext<LandingContextType>({
 export const useGlobalContext = () => useContext(LandingContext);
 
 const Page = ({ Component, pageProps }: { Component: NextComponentType<NextPageContext, any, any>; pageProps: any }) => {
-  const location = usePathname();
-  const [cookies] = useCookies();
+  // const location = usePathname();
+  // const [cookies] = useCookies();
 
   // const ga = cookies().get('google-analytics')
   // const ga = cookieStore.get('google-analytics')
-  const checkConsent = () => {
-    const ga = cookies['google-analytics'] // eslint-disable-line
-    if (ga) {
-      ReactGA.send({ hitType: "pageview", page: "window.location.pathname + window.location.search", title: "Page View" });
-    }
-  }
+  // const checkConsent = () => {
+  //   const ga = cookies['google-analytics'] // eslint-disable-line
+  //   if (ga) {
+  //     ReactGA.send({ hitType: "pageview", page: "window.location.pathname + window.location.search", title: "Page View" });
+  //   }
+  // }
 
 
-  useEffect(() => {
-    checkConsent() // eslint-disable-line
-  }, [location, cookies]); // eslint-disable-line
+  // useEffect(() => {
+  //   checkConsent() // eslint-disable-line
+  // }, [location, cookies]); // eslint-disable-line
 
   // usePageView();
   return (
@@ -85,6 +86,14 @@ const Page = ({ Component, pageProps }: { Component: NextComponentType<NextPageC
 const MyApp: AppType = ({ Component, pageProps }) => {
   return (
     <CookiesProvider>
+      <Script async src="https://www.googletagmanager.com/gtag/js?id=G-1G0WGN2N3Q"></Script>
+      <Script id='gtag'>{`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+  
+          gtag('config', 'G-1G0WGN2N3Q');
+        `}</Script>
       <Page pageProps={pageProps} Component={Component} />
     </CookiesProvider>
   )
