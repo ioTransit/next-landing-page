@@ -26,7 +26,7 @@ export const useGlobalContext = () => useContext(LandingContext);
 
 
 const MyApp: AppType = ({ Component, pageProps }) => {
-  const [allowTracking, setAllowTracking] = useState<boolean>(false);
+  const { setAllowTracking } = useGlobalContext()
 
   usePageView();
   return (
