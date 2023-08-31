@@ -90,7 +90,9 @@ export default function JoinPage() {
   const [verified, setVerified] = useState(false);
   const [_agencies, setAgencies] = useState<typeof agencies | null>(null);
   const [agency, setAgency] = useState<SelectItem | null>(null);
+
   const { handleSubmit, formState: { errors }, register } = useForm();
+  console.log(env.NEXT_PUBLIC_RECAPTCHA)
   const onSubmit: SubmitHandler<CheckValidatorType> = async (data) => {
     try {
 

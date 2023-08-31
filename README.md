@@ -26,3 +26,8 @@ You can check out the [create-t3-app GitHub repository](https://github.com/t3-os
 ## How do I deploy this?
 
 Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+
+
+## LINKS
+- Captcha - https://www.google.com/u/7/recaptcha/admin/site/669620237/settings
+- google analytics - https://analytics.google.com/analytics/web/#/p328679784/reports/intelligenthome
