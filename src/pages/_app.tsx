@@ -1,13 +1,13 @@
 import { type AppType } from "next/dist/shared/lib/utils";
 import Link from "next/link";
 import Image from "next/image";
-import { createContext, useContext } from "react";
+import { createContext, useContext, useEffect } from "react";
 import CookieConsent from "react-cookie-consent";
-import { usePageView } from "~/utils/google-analytics";
-
+import ReactGA from "react-ga4";
 import "~/styles/globals.css";
 import 'react-toastify/dist/ReactToastify.css';
 import { Footer } from "~/components/footer";
+import { usePathname } from "next/navigation";
 
 
 
@@ -25,8 +25,27 @@ export const useGlobalContext = () => useContext(LandingContext);
 
 
 const MyApp: AppType = ({ Component, pageProps }) => {
+  const location = usePathname();
 
-  usePageView();
+  // const ga = cookies().get('google-analytics')
+  // const ga = cookieStore.get('google-analytics')
+  const checkConsent = async () => {
+    const { ga } = await fetch('/api/consent').then(res => res.json()) as { ga: string }
+    if (!!ga) {
+      console.log('tracking')
+      ReactGA.send({ hitType: "pageview", page: "window.location.pathname + window.location.search", title: "Page View" });
+    } else {
+      console.log(ga, 'not tracking')
+      return false
+    }
+  }
+
+
+  useEffect(() => {
+    checkConsent() // eslint-disable-line
+  }, [location]);
+
+  // usePageView();
   return (
     <main className="relative bg-white grid h-full">
       <div className="w-full flex justify-between items-center px-10 py-6 text-gray-900">
