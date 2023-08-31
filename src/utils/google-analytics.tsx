@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import ReactGA from "react-ga4";
 import { type UaEventOptions } from "react-ga4/types/ga4";
 import { useGlobalContext } from "~/pages/_app";
+import { cookies } from 'next/headers'
 
 export const tcPageGA = () => {
   if (!process.env.GA_MEASURE_ID) {
@@ -16,7 +17,9 @@ export const usePageView = () => {
   const location = usePathname();
 
   useEffect(() => {
-    if (!allowTracking) return;
+    const cookieStore = cookies()
+    const ga = cookieStore.get('google-analytics')
+    if (!ga) return;
     console.log('tracking')
     ReactGA.send({ hitType: "pageview", page: "window.location.pathname + window.location.search", title: "Page View" });
   }, [allowTracking, location]);

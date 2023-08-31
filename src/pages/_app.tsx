@@ -25,7 +25,6 @@ export const useGlobalContext = () => useContext(LandingContext);
 
 
 const MyApp: AppType = ({ Component, pageProps }) => {
-  const { setAllowTracking } = useGlobalContext()
 
   usePageView();
   return (
@@ -51,8 +50,7 @@ const MyApp: AppType = ({ Component, pageProps }) => {
         location="bottom"
         buttonText="Accept"
         declineButtonText="Decline"
-        cookieName="myAwesomeCookieName2"
-        onAccept={() => setAllowTracking(true)}
+        cookieName="google-analytics"
         style={{ background: "#2B373B" }}
         buttonStyle={{ color: "#4e503b", fontSize: "13px" }}
         expires={150}
