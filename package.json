@@ -15,6 +15,7 @@
     "@tryghost/content-api": "^1.11.16",
     "adm-zip": "^0.5.10",
     "axios": "^1.4.0",
+    "client-zip": "^2.4.4",
     "clsx": "^2.0.0",
     "fs": "^0.0.1-security",
     "gtfs2geojson": "github:AvidDabbler/gtfs2geojson",

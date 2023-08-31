@@ -82,11 +82,11 @@ export default async function handler(req, res) {
             zip.readAsText(tripsFile.entryName)
           )
         : null;
-    const lines = stopsFile
+    const tripsGeojson = stopsFile
       ? gtfs2geojson.stops(zip.readAsText(stopsFile.entryName))
       : null;
 
-    return res.status(200).json({ stopsGeojson, routesGeojson, lines });
+    return res.status(200).json({ stopsGeojson, routesGeojson, tripsGeojson });
   } catch (e) {
     res.status(500).json(e);
   }
