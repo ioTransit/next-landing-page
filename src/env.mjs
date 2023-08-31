@@ -6,6 +6,9 @@ import { z } from "zod";
  */
 const server = z.object({
   NODE_ENV: z.enum(["development", "test", "production"]),
+  NEXT_PUBLIC_GHOST_URL: z.string(),
+  NEXT_PUBLIC_GHOST_ADMIN_KEY: z.string(),
+  NEXT_PUBLIC_GHOST_CONTENT_KEY: z.string(),
 });
 
 /**
@@ -13,10 +16,8 @@ const server = z.object({
  * built with invalid env vars. To expose them to the client, prefix them with `NEXT_PUBLIC_`.
  */
 const client = z.object({
-  GHOST_URL: z.string(),
-  GHOST_ADMIN_KEY: z.string(),
-  GHOST_CONTENT_KEY: z.string(),
-  RECAPTCHA: z.string(),
+  NEXT_PUBLIC_RECAPTCHA: z.string(),
+  NEXT_PUBLIC_RECAPTCHA_PRIVATE: z.string(),
 });
 
 /**
@@ -27,11 +28,11 @@ const client = z.object({
  */
 const processEnv = {
   NODE_ENV: process.env.NODE_ENV,
-  GHOST_URL: process.env.NEXT_PUBLIC_GHOST_URL,
-  GHOST_ADMIN_KEY: process.env.NEXT_PUBLIC_GHOST_ADMIN_KEY,
-  GHOST_CONTENT_KEY: process.env.NEXT_PUBLIC_GHOST_CONTENT_KEY,
-  RECAPTCHA: process.env.NEXT_PUBLIC_RECAPTCHA,
-  // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
+  NEXT_PUBLIC_GHOST_URL: process.env.NEXT_PUBLIC_GHOST_URL,
+  NEXT_PUBLIC_GHOST_ADMIN_KEY: process.env.NEXT_PUBLIC_GHOST_ADMIN_KEY,
+  NEXT_PUBLIC_GHOST_CONTENT_KEY: process.env.NEXT_PUBLIC_GHOST_CONTENT_KEY,
+  NEXT_PUBLIC_RECAPTCHA: process.env.NEXT_PUBLIC_RECAPTCHA,
+  NEXT_PUBLIC_RECAPTCHA_PRIVATE: process.env.NEXT_PUBLIC_RECAPTCHA_PRIVATE,
 };
 
 // Don't touch the part below
@@ -81,6 +82,5 @@ if (!skip) {
     },
   });
 }
-
 
 export { env };

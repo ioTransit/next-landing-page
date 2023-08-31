@@ -29,7 +29,7 @@ export default function HomePage() {
             <div className="relative px-4 pb-8 pt-16 sm:px-6 sm:pb-14 sm:pt-24 lg:px-8 lg:pb-20 lg:pt-32">
               <h1 className="text-left text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
                 <span className="block text-tcOrange drop-shadow-md">
-                  Magically turn rider feedback to
+                  Magically turn rider feedback into
                   focused goals to improve service
                 </span>
                 {/* <span className="block text-tcOrange drop-shadow-md">
@@ -59,7 +59,7 @@ export default function HomePage() {
           >
             <div className="w-full sm:w-3/4 mx-auto lg:w-1/4 gap-3 grid">
               <h3 className="font-extrabold text-3xl text-center">Customer Service</h3>
-              <p>With TransitChat has all the tools your need to document your rider’s complaints and communicate about solutions.</p>
+              <p>{"TransitChat has all the tools you need to document your riders' complaints and communicate about solutions."}</p>
             </div>
             <h3 className="text-6xl mx-auto rotate-90 lg:rotate-0">👉</h3>
             <div className="w-full sm:w-3/4 mx-auto lg:w-1/4 gap-3 grid">
@@ -70,13 +70,13 @@ export default function HomePage() {
             <div className="w-full sm:w-3/4 mx-auto lg:w-1/4 gap-3 grid">
               <h3 className="font-extrabold text-3xl text-center">Planning & Operations</h3>
               <p>Planning and operations can respond to and track feedback without relying on email.
-                TransitChat allows you to easily tag and organize issues for future schedules an field work tickets</p>
+                TransitChat allows you to easily tag and organize issues for future schedules and field work tickets</p>
             </div>
           </div>
           {[
             {
               title: "Using ChatGPT to make call centers respond faster",
-              p: "We’ve trained AI to work with transit to quickly document customer issues by turning written text into well documented forms.",
+              p: "We’ve trained AI to work with transit data to quickly document customer issues by turning written text into well-documented forms.",
               img: '/images/Chat-Illustration.svg',
             },
             {
@@ -125,7 +125,7 @@ export default function HomePage() {
               <h2 className="text-3xl font-bold text-center">
                 Sign up for Early Access
               </h2>
-              <div className="flex justify-center m-auto">
+              <div className="flex justify-center m-auto mb-20">
                 <Link
                   href={"/check-agency"}
                   className="h-16 drop-shadow-md bg-tcOrange flex transition-colors items-center justify-center rounded-md border border-transparent px-4 py-3 text-xl font-medium text-white shadow-sm hover:bg-yellow-400 sm:px-8"

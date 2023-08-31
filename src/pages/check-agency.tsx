@@ -8,6 +8,7 @@ import { type SubmitHandler, useForm } from "react-hook-form";
 import { agencies } from "~/config";
 import axios from "axios";
 import Head from "next/head";
+import { env } from "~/env.mjs";
 
 export const meta = () => [
   { title: "TransitChat - Let's make transit better" },
@@ -89,8 +90,8 @@ export default function JoinPage() {
   const [verified, setVerified] = useState(false);
   const [_agencies, setAgencies] = useState<typeof agencies | null>(null);
   const [agency, setAgency] = useState<SelectItem | null>(null);
-  const { handleSubmit, formState: { errors }, register } = useForm();
-  const onSubmit: SubmitHandler<CheckValidatorType> = async (data) => {
+
+  const { handleSubmit, formState: { errors }, register } = useForm(); const onSubmit: SubmitHandler<CheckValidatorType> = async (data) => {
     try {
 
       const resp = await axios.post("https://hook.us1.make.com/3rd3kck1q73jx0pq5ddu2nrygkrnx63a", {
@@ -133,7 +134,7 @@ export default function JoinPage() {
         their services by organizing issues in one place."
         />
       </Head>
-      <div className="h-full w-full relative">
+      <div className="h-full w-full relative pb-20">
         <ToastContainer
           position="bottom-right"
           autoClose={5000}
@@ -207,7 +208,7 @@ export default function JoinPage() {
             <input {...register('verified')} value={verified.toString()} type="hidden" />
             <ReCAPTCHA
               className="m-auto child:m-auto child:w-full"
-              sitekey="6LdfatElAAAAAJnBAKPzY-ddeqvBkh04gedDBQoA"
+              sitekey={env.NEXT_PUBLIC_RECAPTCHA}
               onChange={(e) => setVerified(e ? true : false)}
             />
             <Button disabled={!verified ? true : false} type="submit">

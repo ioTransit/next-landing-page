@@ -7,7 +7,7 @@ const initAdmin = () => {
     members: {
       add: async ({ email, name }: { email: string; name: string }) => {
         await axios.post(
-          `${env.GHOST_URL}/ghost/api/admin/members`,
+          `${env.NEXT_PUBLIC_GHOST_URL}/ghost/api/admin/members`,
           {
             members: [
               {
@@ -18,7 +18,7 @@ const initAdmin = () => {
           },
           {
             headers: {
-              Authorization: `Ghost ${env.GHOST_ADMIN_KEY}`,
+              Authorization: `Ghost ${env.NEXT_PUBLIC_GHOST_ADMIN_KEY}`,
             },
           }
         );
@@ -29,8 +29,8 @@ const initAdmin = () => {
 
 const initContent = () => {
   return new GhostContentAPI({
-    url: env.GHOST_URL,
-    key: env.GHOST_CONTENT_KEY,
+    url: env.NEXT_PUBLIC_GHOST_URL,
+    key: env.NEXT_PUBLIC_GHOST_CONTENT_KEY,
     version: "v5.0",
   });
 };
