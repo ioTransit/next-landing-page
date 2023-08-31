@@ -17,6 +17,7 @@ export const usePageView = () => {
 
   useEffect(() => {
     if (!allowTracking) return;
+    console.log('tracking')
     ReactGA.send({ hitType: "pageview", page: "window.location.pathname + window.location.search", title: "Page View" });
   }, [allowTracking, location]);
 };
@@ -24,7 +25,7 @@ export const usePageView = () => {
 export const gaEvent = (allowTracking: boolean, event: string | UaEventOptions) =>
   allowTracking
     ? () => {
-        ReactGA.event(event);
-        return true;
-      }
+      ReactGA.event(event);
+      return true;
+    }
     : false;
