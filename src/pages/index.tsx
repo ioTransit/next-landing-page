@@ -1,24 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
-import Head from "next/head";
+import { MetaHeader } from "~/components/meta";
 
 export default function HomePage() {
   return (
     <div>
-      <Head>
-        <title>GTFS to GeoJSON Conversion</title>
-        <meta name="description"
-          content="TransitChat is a platform that makes it easier for transit 
-                    agencies to communicate with their riders and improve 
-                    their services by organizing issues in one place."
-        />
-        <meta
-          property="og:image"
-          content="https://www.transit.chat/images/TransitChat-Logo-Horizontal.svg"
-        />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-      </Head>
+      <MetaHeader />
       <div className="relative sm:pt-8">
         <div className="mx-auto max-w-7xl">
           <div className="relative sm:rounded-2xl">

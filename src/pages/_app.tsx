@@ -1,11 +1,10 @@
 import { type NextComponentType, type AppType, type NextPageContext } from "next/dist/shared/lib/utils";
-import Link from "next/link";
-import Image from "next/image";
 import CookieConsent from "react-cookie-consent";
 import { Footer } from "~/components/footer";
 import { CookiesProvider } from 'react-cookie';
 import { useCookies } from 'react-cookie';
 import Script from "next/script";
+import { Header } from "~/components/header";
 import "~/styles/globals.css";
 import 'react-toastify/dist/ReactToastify.css';
 import "remixicon/fonts/remixicon.css";
@@ -25,22 +24,7 @@ const Page = ({ Component, pageProps }: { Component: NextComponentType<NextPageC
           gtag('config', 'G-1G0WGN2N3Q');
         `}</Script>}
       <main className="relative bg-white grid h-full">
-        <div className="w-full flex justify-between items-center px-10 py-6 text-gray-900">
-          <Link href='/'>
-            <Image
-              src='/images/TransitChat-Logo-Horizontal.svg'
-              className="h-12 md:h-16 lg:h-20"
-              width={200}
-              height={200}
-              alt="TransitChat Logo"
-            />
-          </Link>
-          <div className="gap-5 flex pb-6">
-            <Link href="/">Home</Link>
-            <Link href="#about">About</Link>
-            <a href={"https://blog.transit.chat/"}>Blog</a>
-          </div>
-        </div><Component {...pageProps} />
+        <Header /><Component {...pageProps} />
         <CookieConsent
           enableDeclineButton
           location="bottom"

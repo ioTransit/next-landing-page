@@ -10,12 +10,14 @@ export const Header = () => {
         <Image
           src='/images/TransitChat-Logo-Horizontal.svg'
           className="h-12 md:h-16 lg:h-20"
+          width={200}
+          height={200}
           alt="TransitChat Logo"
         />
       </Link>
       <div className="gap-5 flex pb-6">
         <Link href="/">Home</Link>
-        <Link href={"https://blog.transit.chat/"}>Blog</Link>
+        <a href={"https://blog.transit.chat/"}>Blog</a>
       </div>
     </div>
   );

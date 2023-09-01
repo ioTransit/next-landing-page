@@ -7,8 +7,8 @@ import ReCAPTCHA from "react-google-recaptcha";
 import { type SubmitHandler, useForm } from "react-hook-form";
 import { agencies, states } from "~/config";
 import axios from "axios";
-import Head from "next/head";
 import { env } from "~/env.mjs";
+import { MetaHeader } from "~/components/meta";
 
 export const meta = () => [
   { title: "TransitChat - Let's make transit better" },
@@ -75,18 +75,7 @@ export default function JoinPage() {
 
   return (
     <>
-      <Head>
-        <title>TransitChat</title>
-        <meta name="description"
-          content="TransitChat is a platform that makes it easier for transit 
-        agencies to communicate with their riders and improve 
-        their services by organizing issues in one place."
-        />
-        <meta
-          property="og:image"
-          content="https://www.transit.chat/images/TransitChat-Logo-Horizontal.svg"
-        />
-      </Head>
+      <MetaHeader />
       <div className="h-full w-full relative pb-20">
         <ToastContainer
           position="bottom-right"
