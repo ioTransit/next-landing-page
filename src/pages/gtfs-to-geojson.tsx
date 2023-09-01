@@ -10,6 +10,7 @@ import { z } from "zod";
 import { Button } from "~/components/button";
 import { Select, SelectItem } from "~/components/select";
 import { agencies, states } from "~/config";
+import { MetaImage } from "~/components/meta";
 
 const gtfsToGeojsonFormId = "gtfs-to-geojson-form";
 export const checkValidator =
@@ -93,10 +94,7 @@ export default function GTFSToGeoJson() {
                     agencies to communicate with their riders and improve 
                     their services by organizing issues in one place."
         />
-        <meta
-          property="og:image"
-          content="https://www.transit.chat/images/TransitChat-Logo-Horizontal.svg"
-        />
+        <MetaImage />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
       </Head>

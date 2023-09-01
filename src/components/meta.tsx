@@ -8,11 +8,15 @@ export const MetaHeader = () => {
                 agencies to communicate with their riders and improve 
                 their services by organizing issues in one place."
     />
-    <meta
-      property="og:image"
-      content="https://www.transit.chat/images/Meta-Image.png"
-    />
+    <MetaImage />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
   </Head>)
+}
+
+export const MetaImage = () => {
+  return (<meta
+    property="og:image"
+    content="https://www.transit.chat/images/Meta-Image.png"
+  />)
 }
