@@ -100,7 +100,7 @@ export default function JoinPage() {
         </h2>
         <form
           id={agencySignupId}
-          className="mt-16 grid w-full sm:w-3/5 lg:w-2/5 inset-0 bg-gray-200 rounded-lg p-10 m-auto  text-gray-700"
+          className="max-w-xl mt-16 grid w-full sm:w-3/5 lg:w-2/5 inset-0 bg-gray-200 rounded-lg p-10 m-auto text-gray-700"
           // @ts-expect-error idk what is going on 
           onSubmit={handleSubmit(onSubmit)} // eslint-disable-line
         >
