@@ -39,7 +39,7 @@ export default function JoinPage() {
   const [_agencies, setAgencies] = useState<typeof agencies | null>(null);
   const [agency, setAgency] = useState<SelectItem | null>(null);
 
-  const { handleSubmit, formState: { errors }, register } = useForm(); 
+  const { handleSubmit, formState: { errors }, register } = useForm();
   const onSubmit: SubmitHandler<CheckValidatorType> = async (data) => {
     try {
 
@@ -81,6 +81,10 @@ export default function JoinPage() {
           content="TransitChat is a platform that makes it easier for transit 
         agencies to communicate with their riders and improve 
         their services by organizing issues in one place."
+        />
+        <meta
+          property="og:image"
+          content="https://www.transit.chat/images/TransitChat-Logo-Horizontal.svg"
         />
       </Head>
       <div className="h-full w-full relative pb-20">

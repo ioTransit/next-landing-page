@@ -12,6 +12,10 @@ export default function HomePage() {
         agencies to communicate with their riders and improve 
         their services by organizing issues in one place."
         />
+        <meta
+          property="og:image"
+          content="https://www.transit.chat/images/TransitChat-Logo-Horizontal.svg"
+        />
       </Head>
       <div className="relative sm:pt-8">
         <div className="mx-auto max-w-7xl">

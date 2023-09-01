@@ -93,6 +93,10 @@ export default function GTFSToGeoJson() {
                     agencies to communicate with their riders and improve 
                     their services by organizing issues in one place."
         />
+        <meta
+          property="og:image"
+          content="https://www.transit.chat/images/TransitChat-Logo-Horizontal.svg"
+        />
       </Head>
       <div className="h-full w-full relative pb-20">
         <ToastContainer
