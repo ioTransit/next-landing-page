@@ -85,7 +85,7 @@ export default function GTFSToGeoJson() {
     }
   }
   return (
-    <>
+    <div>
       <Head>
         <title>GTFS to GeoJSON Conversion</title>
         <meta name="description"
@@ -97,6 +97,8 @@ export default function GTFSToGeoJson() {
           property="og:image"
           content="https://www.transit.chat/images/TransitChat-Logo-Horizontal.svg"
         />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
       </Head>
       <div className="h-full w-full relative pb-20">
         <ToastContainer
@@ -185,6 +187,6 @@ export default function GTFSToGeoJson() {
           </div>
         </form>
       </div>
-    </>
+    </div>
   );
 }

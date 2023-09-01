@@ -8,6 +8,7 @@ import { useCookies } from 'react-cookie';
 import Script from "next/script";
 import "~/styles/globals.css";
 import 'react-toastify/dist/ReactToastify.css';
+import "remixicon/fonts/remixicon.css";
 
 
 const Page = ({ Component, pageProps }: { Component: NextComponentType<NextPageContext, any, any>; pageProps: any }) => {
