@@ -87,7 +87,7 @@ export default function GTFSToGeoJson() {
   return (
     <>
       <Head>
-        <title>TransitChat</title>
+        <title>GTFS to GeoJSON Conversion</title>
         <meta name="description"
           content="TransitChat is a platform that makes it easier for transit 
                     agencies to communicate with their riders and improve 
