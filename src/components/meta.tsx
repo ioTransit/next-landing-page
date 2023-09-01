@@ -10,7 +10,7 @@ export const MetaHeader = () => {
     />
     <meta
       property="og:image"
-      content="https://www.transit.chat/images/TransitChat-Logo-Horizontal.svg"
+      content="https://www.transit.chat/images/Meta-Image.png"
     />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
