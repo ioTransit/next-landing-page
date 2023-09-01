@@ -48,19 +48,19 @@ export default function HomePage() {
         </div>
 
         <div className="background-rect" id="about">
-          <div id='workflow' className="max-w-7xl py-2 z-30 mt-32 md:mt-48 grid lg:flex items-center justify-between mx-auto px-20 gap-10"
+          <div id='workflow' className="py-2 z-30 mt-32 md:mt-48 grid lg:flex items-center justify-between mx-auto px-20 gap-10"
           >
-            <div className="w-full sm:w-3/4 mx-auto lg:w-1/4 gap-3 grid">
+            <div className="w-full sm:w-3/4 mx-auto lg:w-1/4 gap-3 grid max-w-[380px]">
               <h3 className="font-extrabold text-3xl text-center">Customer Service</h3>
               <p>{"TransitChat has all the tools you need to document your riders' complaints and communicate about solutions."}</p>
             </div>
             <h3 className="text-6xl mx-auto rotate-90 lg:rotate-0">👉</h3>
-            <div className="w-full sm:w-3/4 mx-auto lg:w-1/4 gap-3 grid">
+            <div className="w-full sm:w-3/4 mx-auto lg:w-1/4 gap-3 grid max-w-[380px]">
               <h3 className="font-extrabold text-3xl text-center">The Magic✨</h3>
               <p>TransitChat summarizes all of your feedback and delivers you a summary in email and podcast format on a regular schedule.</p>
             </div>
             <h3 className="text-6xl mx-auto rotate-90 lg:rotate-0">👉</h3>
-            <div className="w-full sm:w-3/4 mx-auto lg:w-1/4 gap-3 grid">
+            <div className="w-full sm:w-3/4 mx-auto lg:w-1/4 gap-3 grid max-w-[380px]">
               <h3 className="font-extrabold text-3xl text-center">Planning & Operations</h3>
               <p>Planning and operations can respond to and track feedback without relying on email.
                 TransitChat allows you to easily tag and organize issues for future schedules and field work tickets</p>
@@ -113,7 +113,7 @@ export default function HomePage() {
               </div>
             );
           })}
-          <div className="m-auto justify-center mt-32 gap-4" id="pricing">
+          <div className="m-auto justify-center mt-32 gap-4 w-full" id="pricing">
             <div className="grid gap-6 w-1/2 mx-auto">
               <h2 className="text-3xl font-bold text-center">
                 Sign up for Early Access
