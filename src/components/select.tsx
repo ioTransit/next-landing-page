@@ -73,7 +73,7 @@ export function Select({
   return (
     <div>
       <input {...register(name)} hidden />
-      <label htmlFor="agency" className="mx-2 pb-2">{label}</label>
+      <label className="pb-2">{label}</label>
       <Combobox
         value={selected}
         defaultValue={value}

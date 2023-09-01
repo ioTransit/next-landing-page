@@ -1,35 +1,32 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const path = require("path");
+const OFF = "off";
+const ERROR = "error";
 
-/** @type {import("eslint").Linter.Config} */
-const config = {
-  overrides: [
-    {
-      extends: [
-        "plugin:@typescript-eslint/recommended-requiring-type-checking",
-      ],
-      files: ["*.ts", "*.tsx"],
-      parserOptions: {
-        project: path.join(__dirname, "tsconfig.json"),
-      },
-    },
-  ],
+/**
+ * @type {import('eslint').Linter.BaseConfig}
+ */
+module.exports = {
+  root: true,
   parser: "@typescript-eslint/parser",
-  parserOptions: {
-    project: path.join(__dirname, "tsconfig.json"),
-  },
-  plugins: ["@typescript-eslint"],
-  extends: ["next/core-web-vitals", "plugin:@typescript-eslint/recommended"],
+  plugins: ["@typescript-eslint", "tailwindcss"],
+  extends: [
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:react/jsx-runtime",
+    "prettier",
+    "plugin:tailwindcss/recommended",
+  ],
   rules: {
-    "@typescript-eslint/consistent-type-imports": [
-      "warn",
-      {
-        prefer: "type-imports",
-        fixStyle: "inline-type-imports",
-      },
+    "@typescript-eslint/no-var-requires": OFF,
+    // "react/function-component-definition": ERROR,
+    "@typescript-eslint/no-unused-vars": [
+      ERROR,
+      { args: "none", argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
     ],
-    "@typescript-eslint/no-unused-vars": ["warn", { argsIgnorePattern: "^_" }],
+    "react/prop-types": OFF,
+  },
+  settings: {
+    react: {
+      version: "detect",
+    },
   },
 };
-
-module.exports = config;

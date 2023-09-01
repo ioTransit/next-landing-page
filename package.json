@@ -13,8 +13,12 @@
     "@hookform/resolvers": "^3.3.0",
     "@slack/webhook": "^6.1.0",
     "@tryghost/content-api": "^1.11.16",
+    "adm-zip": "^0.5.10",
     "axios": "^1.4.0",
+    "client-zip": "^2.4.4",
     "clsx": "^2.0.0",
+    "fs": "^0.0.1-security",
+    "gtfs2geojson": "github:AvidDabbler/gtfs2geojson",
     "next": "^13.2.4",
     "react": "18.2.0",
     "react-cookie": "^6.1.0",
@@ -28,6 +32,7 @@
     "zod": "^3.22.2"
   },
   "devDependencies": {
+    "@types/adm-zip": "^0.5.0",
     "@types/eslint": "^8.21.3",
     "@types/node": "^18.15.5",
     "@types/prettier": "^2.7.2",

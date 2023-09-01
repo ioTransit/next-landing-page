@@ -1,20 +1,17 @@
-import { useState } from "react";
-import { Select, type SelectItem } from "~/components/select";
-import { z } from "zod";
-import { ToastContainer, toast } from "react-toastify";
-import { Button } from "~/components/button";
-import ReCAPTCHA from "react-google-recaptcha";
-import { type SubmitHandler, useForm } from "react-hook-form";
-import { agencies, states } from "~/config";
 import axios from "axios";
+import { downloadZip } from "client-zip";
 import Head from "next/head";
 import { env } from "~/env.mjs";
+import { useState } from "react";
+import ReCAPTCHA from "react-google-recaptcha";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { ToastContainer, toast } from "react-toastify";
+import { z } from "zod";
+import { Button } from "~/components/button";
+import { Select, SelectItem } from "~/components/select";
+import { agencies, states } from "~/config";
 
-export const meta = () => [
-  { title: "TransitChat - Let's make transit better" },
-];
-
-
+const gtfsToGeojsonFormId = "gtfs-to-geojson-form";
 export const checkValidator =
   z.object({
     email: z
@@ -26,36 +23,52 @@ export const checkValidator =
     agency: z.string(),
     updateSignup: z.enum(["on"]).optional(),
     verified: z.enum(["true"]),
+    url: z.string().url(),
   });
 type CheckValidatorType = z.infer<typeof checkValidator>;
 
+export default function GTFSToGeoJson() {
+  // const [url, setUrl] = useState("https://www.metrostlouis.org/Transit/google_transit.zip");
+  const { handleSubmit, formState: { errors }, register } = useForm();
 
-
-
-const agencySignupId = "agency-signup";
-
-export default function JoinPage() {
   const [verified, setVerified] = useState(false);
   const [_agencies, setAgencies] = useState<typeof agencies | null>(null);
   const [agency, setAgency] = useState<SelectItem | null>(null);
 
-  const { handleSubmit, formState: { errors }, register } = useForm(); 
   const onSubmit: SubmitHandler<CheckValidatorType> = async (data) => {
     try {
 
-      const resp = await axios.post("https://hook.us1.make.com/3rd3kck1q73jx0pq5ddu2nrygkrnx63a", {
+      const addContact = await axios.post("https://hook.us1.make.com/3rd3kck1q73jx0pq5ddu2nrygkrnx63a", {
         email: data.email,
         name: data.name,
         agency: agency?.name,
         city: agency?.city,
         state: agency?.state
       })
-      if (resp.status === 200) toast.success("Thanks for signing up!")
+
+      const convertGTFS = await (await fetch('api/gtfs-to-geojson', { method: 'POST', body: JSON.stringify({ url: data.url }) })).json()
+      console.log(convertGTFS)
+      if (addContact.status === 200 && convertGTFS) {
+        const stops = { name: "stops.json", lastModified: new Date(), input: JSON.stringify(convertGTFS.stopsGeojson) }
+        const routes = { name: "routes.json", lastModified: new Date(), input: JSON.stringify(convertGTFS.routesGeojson) }
+        const trips = { name: "trips.json", lastModified: new Date(), input: JSON.stringify(convertGTFS.tripsGeojson) }
+        const blob = await downloadZip([stops, routes, trips]).blob()
+
+        // make and click a temporary link to download the Blob
+        const link = document.createElement("a")
+        link.href = URL.createObjectURL(blob)
+        link.download = "gtfs-geojson.zip"
+        link.click()
+        link.remove()
+        toast.success("Thanks for signing up!")
+      }
       else toast.error("Something went wrong")
     } catch (e) {
+      console.error(e)
       toast.error("Something went wrong")
+
     }
-  };
+  }
 
   const onStateChange = (e: SelectItem) => {
     if (!e.id) {
@@ -71,16 +84,14 @@ export default function JoinPage() {
       setAgency(e)
     }
   }
-
-
   return (
     <>
       <Head>
         <title>TransitChat</title>
         <meta name="description"
           content="TransitChat is a platform that makes it easier for transit 
-        agencies to communicate with their riders and improve 
-        their services by organizing issues in one place."
+                    agencies to communicate with their riders and improve 
+                    their services by organizing issues in one place."
         />
       </Head>
       <div className="h-full w-full relative pb-20">
@@ -96,37 +107,35 @@ export default function JoinPage() {
           theme="light"
         />
         <h2 className=" text-center text-3xl pt-12 text-gray-700">
-          Check to see if your agency is available
+          Convert your GTFS files to GeoJSON
         </h2>
         <form
-          id={agencySignupId}
+          id={gtfsToGeojsonFormId}
           className="mt-16 grid w-full sm:w-3/5 lg:w-2/5 inset-0 bg-gray-200 rounded-lg p-10 m-auto  text-gray-700"
           // @ts-expect-error idk what is going on 
           onSubmit={handleSubmit(onSubmit)} // eslint-disable-line
         >
           <div className="w-full  gap-5 grid">
-
-            {/* <ValidatedInput type="string" name="name" label="Name" error={errors.name?.message} /> */}
-            <label className="mx-2 pb-2" htmlFor={'name'}>
+            <label className="pb-2" htmlFor={'name'}>
               Name
+              <input
+                {...register('name')}
+                type='string'
+                name='name'
+                className="h-6 py-6 px-4 w-full border rounded-md"
+              />
             </label>
-            <input
-              {...register('name')}
-              type='string'
-              name='name'
-              className="h-6 p-6 w-full border rounded-md"
-            />
             {errors.name?.message && typeof errors.name?.message === "string" && <p className="text-red-500 px-3">{errors.name?.message}</p>}
             {/* <ValidatedInput type="email" name="email" label="Email" error={errors.email?.message} /> */}
-            <label className="mx-2 pb-2" htmlFor={'email'}>
+            <label className="pb-2" htmlFor={'email'}>
               Email
+              <input
+                {...register('email')}
+                type='email'
+                name='email'
+                className="h-6 py-6 px-4 w-full border rounded-md"
+              />
             </label>
-            <input
-              {...register('email')}
-              type='email'
-              name='email'
-              className="h-6 p-6 w-full border rounded-md"
-            />
             {errors.email?.message && typeof errors.email?.message === "string" && <p className="text-red-500 px-3">{errors.email?.message}</p>}
             <Select
               options={states}
@@ -142,19 +151,25 @@ export default function JoinPage() {
               error={undefined}
               onChange={onAgencyChange}
               label='Agency' />}
+
+
+            <input {...register('verified')} value={verified.toString()} type="hidden" />
+            <label className="pb-2" htmlFor={'email'}>
+              GTFS URL
+              <input {...register('url')} type="text" className="h-6 py-6 px-4 w-full border rounded-md"
+              />
+            </label>
             <div className="flex w-full justify-center items-center">
               <input
                 type="checkbox"
                 name="updateSignup"
                 defaultChecked
-                className="h-4 w-4 mx-3 rounded-full shadow"
+                className="h-6 py-6 px-4 w-full border rounded-md"
               ></input>
               <label htmlFor="updateSignup">
                 Would you like to get updates?
               </label>
             </div>
-
-            <input {...register('verified')} value={verified.toString()} type="hidden" />
             <ReCAPTCHA
               className="m-auto child:m-auto child:w-full"
               sitekey={env.NEXT_PUBLIC_RECAPTCHA}
