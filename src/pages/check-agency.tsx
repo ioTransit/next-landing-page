@@ -5,7 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import { Button } from "~/components/button";
 import ReCAPTCHA from "react-google-recaptcha";
 import { type SubmitHandler, useForm } from "react-hook-form";
-import { agencies } from "~/config";
+import { agencies, states } from "~/config";
 import axios from "axios";
 import Head from "next/head";
 import { env } from "~/env.mjs";
@@ -30,58 +30,6 @@ export const checkValidator =
 type CheckValidatorType = z.infer<typeof checkValidator>;
 
 
-const states = [
-  { "id": "AL", "name": "Alabama" },
-  { "id": "AK", "name": "Alaska" },
-  { "id": "AZ", "name": "Arizona" },
-  { "id": "AR", "name": "Arkansas" },
-  { "id": "CA", "name": "California" },
-  { "id": "CO", "name": "Colorado" },
-  { "id": "CT", "name": "Connecticut" },
-  { "id": "DE", "name": "Delaware" },
-  { "id": "FL", "name": "Florida" },
-  { "id": "GA", "name": "Georgia" },
-  { "id": "HI", "name": "Hawaii" },
-  { "id": "ID", "name": "Idaho" },
-  { "id": "IL", "name": "Illinois" },
-  { "id": "IN", "name": "Indiana" },
-  { "id": "IA", "name": "Iowa" },
-  { "id": "KS", "name": "Kansas" },
-  { "id": "KY", "name": "Kentucky" },
-  { "id": "LA", "name": "Louisiana" },
-  { "id": "ME", "name": "Maine" },
-  { "id": "MD", "name": "Maryland" },
-  { "id": "MA", "name": "Massachusetts" },
-  { "id": "MI", "name": "Michigan" },
-  { "id": "MN", "name": "Minnesota" },
-  { "id": "MS", "name": "Mississippi" },
-  { "id": "MO", "name": "Missouri" },
-  { "id": "MT", "name": "Montana" },
-  { "id": "NE", "name": "Nebraska" },
-  { "id": "NV", "name": "Nevada" },
-  { "id": "NH", "name": "New Hampshire" },
-  { "id": "NJ", "name": "New Jersey" },
-  { "id": "NM", "name": "New Mexico" },
-  { "id": "NY", "name": "New York" },
-  { "id": "NC", "name": "North Carolina" },
-  { "id": "ND", "name": "North Dakota" },
-  { "id": "OH", "name": "Ohio" },
-  { "id": "OK", "name": "Oklahoma" },
-  { "id": "OR", "name": "Oregon" },
-  { "id": "PA", "name": "Pennsylvania" },
-  { "id": "RI", "name": "Rhode Island" },
-  { "id": "SC", "name": "South Carolina" },
-  { "id": "SD", "name": "South Dakota" },
-  { "id": "TN", "name": "Tennessee" },
-  { "id": "TX", "name": "Texas" },
-  { "id": "UT", "name": "Utah" },
-  { "id": "VT", "name": "Vermont" },
-  { "id": "VA", "name": "Virginia" },
-  { "id": "WA", "name": "Washington" },
-  { "id": "WV", "name": "West Virginia" },
-  { "id": "WI", "name": "Wisconsin" },
-  { "id": "WY", "name": "Wyoming" }
-]
 
 
 const agencySignupId = "agency-signup";
@@ -91,7 +39,8 @@ export default function JoinPage() {
   const [_agencies, setAgencies] = useState<typeof agencies | null>(null);
   const [agency, setAgency] = useState<SelectItem | null>(null);
 
-  const { handleSubmit, formState: { errors }, register } = useForm(); const onSubmit: SubmitHandler<CheckValidatorType> = async (data) => {
+  const { handleSubmit, formState: { errors }, register } = useForm(); 
+  const onSubmit: SubmitHandler<CheckValidatorType> = async (data) => {
     try {
 
       const resp = await axios.post("https://hook.us1.make.com/3rd3kck1q73jx0pq5ddu2nrygkrnx63a", {
@@ -105,7 +54,6 @@ export default function JoinPage() {
       else toast.error("Something went wrong")
     } catch (e) {
       toast.error("Something went wrong")
-
     }
   };
 
@@ -123,6 +71,7 @@ export default function JoinPage() {
       setAgency(e)
     }
   }
+
 
   return (
     <>
@@ -147,7 +96,7 @@ export default function JoinPage() {
           theme="light"
         />
         <h2 className=" text-center text-3xl pt-12 text-gray-700">
-          Check to See if you agency is available
+          Check to see if your agency is available
         </h2>
         <form
           id={agencySignupId}

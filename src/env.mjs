@@ -9,6 +9,7 @@ const server = z.object({
   NEXT_PUBLIC_GHOST_URL: z.string(),
   NEXT_PUBLIC_GHOST_ADMIN_KEY: z.string(),
   NEXT_PUBLIC_GHOST_CONTENT_KEY: z.string(),
+  NEXT_PUBLIC_HUBSPOT_API_KEY: z.string(),
 });
 
 /**
@@ -33,6 +34,7 @@ const processEnv = {
   NEXT_PUBLIC_GHOST_CONTENT_KEY: process.env.NEXT_PUBLIC_GHOST_CONTENT_KEY,
   NEXT_PUBLIC_RECAPTCHA: process.env.NEXT_PUBLIC_RECAPTCHA,
   NEXT_PUBLIC_RECAPTCHA_PRIVATE: process.env.NEXT_PUBLIC_RECAPTCHA_PRIVATE,
+  NEXT_PUBLIC_HUBSPOT_API_KEY: process.env.NEXT_PUBLIC_HUBSPOT_API_KEY,
 };
 
 // Don't touch the part below
