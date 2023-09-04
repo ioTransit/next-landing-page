@@ -98,8 +98,6 @@ export default function JoinPage() {
           onSubmit={handleSubmit(onSubmit)} // eslint-disable-line
         >
           <div className="w-full  gap-5 grid">
-
-            {/* <ValidatedInput type="string" name="name" label="Name" error={errors.name?.message} /> */}
             <label className="mx-2 pb-2" htmlFor={'name'}>
               Name
             </label>
@@ -110,7 +108,6 @@ export default function JoinPage() {
               className="h-6 p-6 w-full border rounded-md"
             />
             {errors.name?.message && typeof errors.name?.message === "string" && <p className="text-red-500 px-3">{errors.name?.message}</p>}
-            {/* <ValidatedInput type="email" name="email" label="Email" error={errors.email?.message} /> */}
             <label className="mx-2 pb-2" htmlFor={'email'}>
               Email
             </label>
