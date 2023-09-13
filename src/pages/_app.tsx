@@ -23,6 +23,8 @@ const Page = ({ Component, pageProps }: { Component: NextComponentType<NextPageC
   
           gtag('config', 'G-1G0WGN2N3Q');
         `}</Script>}
+      {cookies['google-analytics'] && <Script id='zohochat'>{` <script type="text/javascript" id="zsiqchat">var $zoho=$zoho || {};$zoho.salesiq = $zoho.salesiq || {widgetcode: "siq9d340b891fcd88baa836d748b221791afd7c6638def5564b76a873c5d52a5134", values:{},ready:function(){}};var d=document;s=d.createElement("script");s.type="text/javascript";s.id="zsiqscript";s.defer=true;s.src="https://salesiq.zohopublic.com/widget";t=d.getElementsByTagName("script")[0];t.parentNode.insertBefore(s,t);</script> 
+        `}</Script>}
       <main className="relative bg-white grid h-full">
         <Header /><Component {...pageProps} />
         <CookieConsent
