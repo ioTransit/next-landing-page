@@ -23,7 +23,7 @@ const Page = ({ Component, pageProps }: { Component: NextComponentType<NextPageC
   
           gtag('config', 'G-1G0WGN2N3Q');
         `}</Script>}
-      {cookies['google-analytics'] && <Script id='zohochat'>{`var $zoho=$zoho || {};$zoho.salesiq = $zoho.salesiq || {widgetcode: "siq9d340b891fcd88baa836d748b221791afd7c6638def5564b76a873c5d52a5134", values:{},ready:function(){}};var d=document;s=d.createElement("script");s.type="text/javascript";s.id="zsiqscript";s.defer=true;s.src="https://salesiq.zohopublic.com/widget";t=d.getElementsByTagName("script")[0];t.parentNode.insertBefore(s,t); 
+      {cookies['google-analytics'] && <Script id='zohochat'>{`window.$crisp=[];window.CRISP_WEBSITE_ID="undefined";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();
         `}</Script>}
       <main className="relative bg-white grid h-full">
         <Header /><Component {...pageProps} />
