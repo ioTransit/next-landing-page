@@ -13,7 +13,7 @@ const comboboxClassNames = {
   button:
     "absolute inset-y-0 right-0 flex items-center justify-between pr-2 text-base",
   input:
-    "w-full truncate border-none px-0 mx-2 text-base leading-5 text-gray-900 focus:ring-0 my-4",
+    "w-full truncate border-none px-0 mx-2 text-base leading-5 text-gray-900 focus:ring-0 my-4 disabled:text-gray-500",
   filteredItems: "relative cursor-default select-none px-4 py-2 text-gray-700",
   option: ({ active }: { active: boolean }) =>
     clsx(
@@ -35,11 +35,13 @@ export function Select({
   options,
   error,
   onChange,
+  disabled,
   value,
   label
 }: {
   name: string;
   options: SelectItem[];
+  disabled?: boolean;
   error?: undefined | string;
   onChange?: (e: SelectItem) => void;
   value?: SelectItem;
@@ -71,19 +73,21 @@ export function Select({
   };
 
   return (
-    <div>
+    <div className={clsx(disabled && "cursor-not-allowed")}>
       <input {...register(name)} hidden />
       <label className="pb-2">{label}</label>
       <Combobox
         value={selected}
         defaultValue={value}
         onChange={(e) => update(e)}
+        disabled={disabled ?? false}
       >
-        <div className="relative w-full">
-          <div className="relative flex h-14 w-full cursor-default select-none justify-between rounded-md border bg-white text-gray-700">
-            <Combobox.Button className={`${comboboxClassNames.button} w-full`}>
+        <div className={clsx("relative w-full", disabled && "cursor-not-allowed")}>
+          <div className={clsx("relative flex h-14 w-full cursor-default select-none justify-between rounded-md border bg-white text-gray-700", disabled && "cursor-not-allowed")}>
+            <Combobox.Button className={clsx(`${comboboxClassNames.button} w-full`)}>
+              
               <span
-                className={`${comboboxClassNames.input} w-full py-2 text-left`}
+                className={clsx(`${comboboxClassNames.input} w-full py-2 text-left`, disabled && "text-gray-300 cursor-not-allowed")}
               >
                 {selected ? selected.name : "Select an item"}
               </span>

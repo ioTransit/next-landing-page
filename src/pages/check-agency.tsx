@@ -126,12 +126,13 @@ export default function JoinPage() {
               onChange={onStateChange}
             />
             <input hidden {...register('state')} value={agency ? agency?.state : undefined} />
-            {_agencies && <Select
-              options={_agencies}
+            <Select
+              options={_agencies ?? []}
+              disabled={!_agencies || _agencies?.length === 0}
               name='agency'
               error={undefined}
               onChange={onAgencyChange}
-              label='Agency' />}
+              label='Agency' />
             <div className="flex w-full justify-center items-center">
               <input
                 type="checkbox"
