@@ -21,7 +21,7 @@ export default function HomePage() {
             </div>
             <div className="relative px-4 pb-8 pt-16 sm:px-6 sm:pb-14 sm:pt-24 lg:px-8 lg:pb-20 lg:pt-32">
               <h1 className="text-left text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
-                <p className="block text-tcOrange drop-shadow-md">
+                <p className="block text-tcOrange drop-shadow-md md:w-[80%]">
                   Stop losing rider complaints in endless email threads.
                 </p>
               </h1>
@@ -43,8 +43,8 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="background-rect gap-20" id="about">
-          <div id='workflow' className="py-2 z-30 mt-32 md:mt-48 grid lg:flex  justify-between mx-auto px-20 gap-10 md:gap-20"
+        <div className="background-rect mt-32 md:mt-48 gap-32 md:gap-48" id="about">
+          <div id='workflow' className="py-2 z-30 grid lg:flex  justify-between mx-auto px-20 gap-10 md:gap-20"
           >
             <div className="w-full sm:w-3/4 mx-auto lg:w-1/4 gap-3 grid max-w-[380px]">
               <h3 className="font-extrabold text-3xl text-center md:text-4xl">Respond</h3>
@@ -62,9 +62,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div>
-            <h3 className="text-3xl lg:text-4xl m-auto italic text-gray-700 w-3/4">"Whether you are the ceo or a service planner you will all be on the same page of what happened if you read TransitChat summaries"</h3>
-          </div>
+            <h3 className="text-3xl lg:text-4xl m-auto italic text-gray-700 w-3/4">"Whether you are the ceo or a service planner you will all be on the same page of if you read TransitChat summaries"</h3>
 
 
           {[
@@ -88,7 +86,7 @@ export default function HomePage() {
             return (
               <div
                 key={k}
-                className="mx-auto max-w-7xl px-4 py-2 z-30 mt-32 md:mt-48"
+                className="mx-auto max-w-7xl px-4 py-2 z-30"
               >
                 <div className="flex flex-col-reverse lg:flex-row gap-5 justify-center ">
                   <div className="grid gap-4 w-full sm:w-2/3 lg:w-1/2 mt-12 lg:mt-0 mx-auto lg:m-0">
@@ -114,7 +112,7 @@ export default function HomePage() {
               </div>
             );
           })}
-          <div className="m-auto justify-center mt-32 gap-4 w-full" id="pricing">
+          <div className="m-auto justify-center gap-4 w-full" id="pricing">
             <div className="grid gap-6 w-1/2 mx-auto">
               <h2 className="text-3xl font-bold text-center">
                 Sign up for Early Access
