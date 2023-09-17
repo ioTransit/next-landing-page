@@ -35,21 +35,10 @@ export default function HomePage() {
               </h1>
               <p className="mt-6 max-w-lg text-left text-2xl text-gray-900 sm:max-w-3xl">
                 You should be able to read your rider’s complaints and
-                collaborate without forgetting to click reply all. 
+                collaborate without forgetting to click reply all.
                 TransitChat stores all of your rider feedback and conversations
                 without searching through email threads and forwarding conversations.
               </p>
-              {/* <p className="mt-6 max-w-lg text-left text-2xl text-gray-900 sm:max-w-3xl">
-                Keeping track of rider complaints is hard enough 
-                without having to search through endless email threads.
-                You should be able to read your rider’s complaints and 
-                communicate about solutions without forgetting to click reply all. 
-              </p> */}
-              {/* <p className="mt-6 max-w-lg text-left text-2xl text-gray-900 sm:max-w-3xl">
-                TransitChat makes it simple for transit agencies to document your
-                rider’s needs and summarizes them into simple emails and voice
-                notes
-              </p> */}
               <div className=" mt-10 sm:flex">
                 <Link
                   href={"/check-agency"}
@@ -62,25 +51,30 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="background-rect" id="about">
-          <div id='workflow' className="py-2 z-30 mt-32 md:mt-48 grid lg:flex items-center justify-between mx-auto px-20 gap-10"
+        <div className="background-rect gap-20" id="about">
+          <div id='workflow' className="py-2 z-30 mt-32 md:mt-48 grid lg:flex  justify-between mx-auto px-20 gap-10 md:gap-20"
           >
             <div className="w-full sm:w-3/4 mx-auto lg:w-1/4 gap-3 grid max-w-[380px]">
-              <h3 className="font-extrabold text-3xl text-center">Customer Service</h3>
-              <p>{"TransitChat has all the tools you need to document your riders' complaints and communicate about solutions."}</p>
+              <h3 className="font-extrabold text-3xl text-center md:text-4xl">Respond</h3>
+              <p className="text-lg md:text-xl">{"Easy to use tools to see vehicle positions and performance with forms to document issues and complaints"}</p>
             </div>
-            <h3 className="text-6xl mx-auto rotate-90 lg:rotate-0">👉</h3>
+            <h3 className="text-6xl m-auto rotate-90 lg:rotate-0 ">👉</h3>
             <div className="w-full sm:w-3/4 mx-auto lg:w-1/4 gap-3 grid max-w-[380px]">
-              <h3 className="font-extrabold text-3xl text-center">The Magic✨</h3>
-              <p>TransitChat summarizes all of your feedback and delivers you a summary in email and podcast format on a regular schedule.</p>
+              <h3 className="font-extrabold text-3xl text-center lg:text-4xl">Summarize✨</h3>
+              <p className="text-lg md:text-xl">TransitChat reads all of your feedback and delivers you a summary in email on a regular schedule</p>
             </div>
-            <h3 className="text-6xl mx-auto rotate-90 lg:rotate-0">👉</h3>
+            <h3 className="text-6xl m-auto rotate-90 lg:rotate-0">👉</h3>
             <div className="w-full sm:w-3/4 mx-auto lg:w-1/4 gap-3 grid max-w-[380px]">
-              <h3 className="font-extrabold text-3xl text-center">Planning & Operations</h3>
-              <p>Planning and operations can respond to and track feedback without relying on email.
-                TransitChat allows you to easily tag and organize issues for future schedules and field work tickets</p>
+              <h3 className="font-extrabold text-3xl text-center lg:text-4xl">Plan</h3>
+              <p className="text-lg md:text-xl">Track route issues, collaborate with teams and create tickets without relying and forwarding long email threads</p>
             </div>
           </div>
+
+          <div>
+            <h3 className="text-3xl lg:text-4xl m-auto italic text-gray-700 w-3/4">"Whether you are the ceo or a service planner you will all be on the same page of what happened if you read TransitChat summaries"</h3>
+          </div>
+
+
           {[
             {
               title: "Using ChatGPT to make call centers respond faster",
