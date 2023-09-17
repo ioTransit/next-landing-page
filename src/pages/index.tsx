@@ -24,14 +24,6 @@ export default function HomePage() {
                 <p className="block text-tcOrange drop-shadow-md">
                   Stop losing rider complaints in endless email threads.
                 </p>
-                {/* <span className="block text-tcOrange drop-shadow-md">
-                  Magically turn rider feedback into
-                  focused goals to improve service
-                </span> */}
-                {/* <span className="block text-tcOrange drop-shadow-md">
-                  Listen to your rider’s complaints and communicate about
-                  solutions
-                </span> */}
               </h1>
               <p className="mt-6 max-w-lg text-left text-2xl text-gray-900 sm:max-w-3xl">
                 You should be able to read your rider’s complaints and
@@ -44,7 +36,7 @@ export default function HomePage() {
                   href={"/check-agency"}
                   className="h-16 drop-shadow-md flex transition-colors items-center justify-center rounded-md border border-transparent bg-tcOrange px-4 py-3 text-xl font-medium text-white shadow-sm hover:bg-yellow-400 sm:px-8"
                 >
-                  See if your agency is available
+                  Request Early Access
                 </Link>
               </div>
             </div>
@@ -107,7 +99,7 @@ export default function HomePage() {
                         href={"/check-agency"}
                         className="drop-shadow-md flex transition-colors items-center justify-center rounded-md border border-transparent bg-tcOrange px-4 py-3 text-xl font-medium text-white shadow-sm hover:bg-yellow-400 sm:px-8"
                       >
-                        See if your agency is available
+                        Request Early Access
                       </Link>
                     </div>
                   </div>

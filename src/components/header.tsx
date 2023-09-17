@@ -16,8 +16,9 @@ export const Header = () => {
         />
       </Link>
       <div className="gap-5 flex pb-6">
-        <Link href="/">Home</Link>
-        <a href={"https://blog.transit.chat/"}>Blog</a>
+        <Link href='/gtfs-to-geojson' className="text-tcOrange hover:text-yellow-400">GTFS To GeoJson Converter</Link>
+        <Link href="/" className="hover:text-yellow-400">Home</Link>
+        <a className="hover:text-yellow-400" href={"https://blog.transit.chat/"}>Blog</a>
       </div>
     </div>
   );
