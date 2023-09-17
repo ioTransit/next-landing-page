@@ -21,20 +21,35 @@ export default function HomePage() {
             </div>
             <div className="relative px-4 pb-8 pt-16 sm:px-6 sm:pb-14 sm:pt-24 lg:px-8 lg:pb-20 lg:pt-32">
               <h1 className="text-left text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
-                <span className="block text-tcOrange drop-shadow-md">
+                <p className="block text-tcOrange drop-shadow-md">
+                  Stop losing rider complaints in endless email threads.
+                </p>
+                {/* <span className="block text-tcOrange drop-shadow-md">
                   Magically turn rider feedback into
                   focused goals to improve service
-                </span>
+                </span> */}
                 {/* <span className="block text-tcOrange drop-shadow-md">
                   Listen to your rider’s complaints and communicate about
                   solutions
                 </span> */}
               </h1>
               <p className="mt-6 max-w-lg text-left text-2xl text-gray-900 sm:max-w-3xl">
+                You should be able to read your rider’s complaints and
+                collaborate without forgetting to click reply all. 
+                TransitChat stores all of your rider feedback and conversations
+                without searching through email threads and forwarding conversations.
+              </p>
+              {/* <p className="mt-6 max-w-lg text-left text-2xl text-gray-900 sm:max-w-3xl">
+                Keeping track of rider complaints is hard enough 
+                without having to search through endless email threads.
+                You should be able to read your rider’s complaints and 
+                communicate about solutions without forgetting to click reply all. 
+              </p> */}
+              {/* <p className="mt-6 max-w-lg text-left text-2xl text-gray-900 sm:max-w-3xl">
                 TransitChat makes it simple for transit agencies to document your
                 rider’s needs and summarizes them into simple emails and voice
                 notes
-              </p>
+              </p> */}
               <div className=" mt-10 sm:flex">
                 <Link
                   href={"/check-agency"}
@@ -76,7 +91,7 @@ export default function HomePage() {
               title:
                 "Communicate and track issues across transit agency departments",
               p: "TransitChat allows teams to communicate about rider issues without email and tracks conversations from complaint to completion.",
-              img: '/images/Bus-map-illustration.png',
+              img: '/images/Bus-map-illustration.svg',
             },
             {
               title: "Rider feedback summaries in your email",
