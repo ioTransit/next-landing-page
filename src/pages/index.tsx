@@ -46,19 +46,19 @@ export default function HomePage() {
         <div className="background-rect mt-32 md:mt-48 gap-32 md:gap-48" id="about">
           <div id='workflow' className="py-2 z-30 grid lg:flex  justify-between mx-auto px-20 gap-10 md:gap-20"
           >
-            <div className="w-full sm:w-3/4 mx-auto lg:w-1/4 gap-3 grid max-w-[380px]">
+            <div className="w-full sm:w-3/4 mx-auto lg:w-1/4 gap-3 grid max-w-[550px]">
               <h3 className="font-extrabold text-3xl text-center md:text-4xl">Respond</h3>
-              <p className="text-lg md:text-xl">{"Easy to use tools to see vehicle positions and performance with forms to document issues and complaints"}</p>
+              <p className="text-2xl">{"Easy to use tools to see vehicle positions and performance with forms to document issues and complaints"}</p>
             </div>
             <h3 className="text-6xl m-auto rotate-90 lg:rotate-0 ">👉</h3>
-            <div className="w-full sm:w-3/4 mx-auto lg:w-1/4 gap-3 grid max-w-[380px]">
+            <div className="w-full sm:w-3/4 mx-auto lg:w-1/4 gap-3 grid max-w-[550px]">
               <h3 className="font-extrabold text-3xl text-center lg:text-4xl">Summarize✨</h3>
-              <p className="text-lg md:text-xl">TransitChat reads all of your feedback and delivers you a summary in email on a regular schedule</p>
+              <p className="text-2xl">TransitChat reads all of your feedback and delivers you a summary in email on a regular schedule</p>
             </div>
             <h3 className="text-6xl m-auto rotate-90 lg:rotate-0">👉</h3>
-            <div className="w-full sm:w-3/4 mx-auto lg:w-1/4 gap-3 grid max-w-[380px]">
+            <div className="w-full sm:w-3/4 mx-auto lg:w-1/4 gap-3 grid max-w-[550px]">
               <h3 className="font-extrabold text-3xl text-center lg:text-4xl">Plan</h3>
-              <p className="text-lg md:text-xl">Track route issues, collaborate with teams and create tickets without relying and forwarding long email threads</p>
+              <p className="text-2xl">Track route issues, collaborate with teams and create tickets without relying and forwarding long email threads</p>
             </div>
           </div>
 
@@ -67,19 +67,19 @@ export default function HomePage() {
 
           {[
             {
-              title: "Using ChatGPT to make call centers respond faster",
-              p: "We’ve trained AI to work with transit data to quickly document customer issues by turning written text into well-documented forms.",
-              img: '/images/Chat-Illustration.svg',
+              title: "Tag issues and complaints with locations and routes",
+              p: "Emails can be lost and hard to search through, TransitChat easily tags issues with location and route making it easy to find things for Triennial Reviews",
+              img: '/images/route-tickets.svg',
             },
             {
               title:
-                "Communicate and track issues across transit agency departments",
-              p: "TransitChat allows teams to communicate about rider issues without email and tracks conversations from complaint to completion.",
+                "Never forget to CC your coworker again on a rider complaint",
+              p: "With TransitChat you don't have to scroll through endless email threads all issues and communications are in one place and easy to find",
               img: '/images/Bus-map-illustration.svg',
             },
             {
-              title: "Rider feedback summaries in your email",
-              p: "We’ll keep you informed by emailing you summaries of what your riders are saying so you can focus on your work.",
+              title: "Stop having meetings just to get everyone caught up to speed",
+              p: "We’ll keep you informed by emailing your whole team summaries of what your riders and staff are saying so you can focus on finding solutions.",
               img: '/images/Email-updates.svg',
             },
           ].map((item, k) => {
@@ -115,14 +115,14 @@ export default function HomePage() {
           <div className="m-auto justify-center gap-4 w-full" id="pricing">
             <div className="grid gap-6 w-1/2 mx-auto">
               <h2 className="text-3xl font-bold text-center">
-                Sign up for Early Access
+                We're launching soon
               </h2>
               <div className="flex justify-center m-auto mb-20">
                 <Link
                   href={"/check-agency"}
                   className="h-16 drop-shadow-md bg-tcOrange flex transition-colors items-center justify-center rounded-md border border-transparent px-4 py-3 text-xl font-medium text-white shadow-sm hover:bg-yellow-400 sm:px-8"
                 >
-                  Sign up
+                  Request Early Access
                 </Link>
               </div>
             </div>
