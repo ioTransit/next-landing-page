@@ -76,7 +76,7 @@ export default function JoinPage() {
   return (
     <>
       <MetaHeader />
-      <div className="h-full w-full relative pb-20">
+      <div className="h-full w-full relative pb-20 gap-10 grid md:flex md:flex-row-reverse md:items-start">
         <ToastContainer
           position="bottom-right"
           autoClose={5000}
@@ -88,12 +88,19 @@ export default function JoinPage() {
           pauseOnHover
           theme="light"
         />
-        <h2 className=" text-center text-3xl pt-12 text-gray-700">
-          Check to see if your agency is available
-        </h2>
+        <div className="grid w-3/4 max-w-[500px] mx-auto md:mt-10 gap-10">
+          <h2 className="text-center text-4xl block text-tcOrange drop-shadow-md bold">
+            {"We're just getting started"}
+          </h2>
+          <p className=" text-gray-700 text-center text-2xl">
+            We're out here working hard to bring the best transit collaboration software to you and want 
+            to hear from you about you about how we can make transit better.
+            Sign up below to stay informed and we'll reach out when we are ready.
+          </p>
+        </div>
         <form
           id={agencySignupId}
-          className="max-w-xl mt-16 grid w-full sm:w-3/5 lg:w-2/5 inset-0 bg-gray-200 rounded-lg p-10 m-auto text-gray-700"
+          className="max-w-xl grid w-full sm:w-3/5 lg:w-2/5 inset-0 bg-gray-200 rounded-lg p-10 m-auto text-gray-700"
           // @ts-expect-error idk what is going on 
           onSubmit={handleSubmit(onSubmit)} // eslint-disable-line
         >
@@ -126,18 +133,19 @@ export default function JoinPage() {
               onChange={onStateChange}
             />
             <input hidden {...register('state')} value={agency ? agency?.state : undefined} />
-            {_agencies && <Select
-              options={_agencies}
+            <Select
+              options={_agencies ?? []}
+              disabled={!_agencies || _agencies?.length === 0}
               name='agency'
               error={undefined}
               onChange={onAgencyChange}
-              label='Agency' />}
-            <div className="flex w-full justify-center items-center">
+              label='Agency' />
+            <div className="flex mx-auto items-center gap-3">
               <input
                 type="checkbox"
                 name="updateSignup"
                 defaultChecked
-                className="h-4 w-4 mx-3 rounded-full shadow"
+                className="h-6 w-6 border rounded-md"
               ></input>
               <label htmlFor="updateSignup">
                 Would you like to get updates?
