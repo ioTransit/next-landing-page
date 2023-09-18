@@ -93,8 +93,8 @@ export default function JoinPage() {
             {"We're just getting started"}
           </h2>
           <p className=" text-gray-700 text-center text-2xl">
-            We're out here working hard to bring the best transit collaboration software to you and want to hear from you.
-            We we want to hear from you about you about how we can make transit better.
+            We're out here working hard to bring the best transit collaboration software to you and want 
+            to hear from you about you about how we can make transit better.
             Sign up below to stay informed and we'll reach out when we are ready.
           </p>
         </div>
@@ -140,12 +140,12 @@ export default function JoinPage() {
               error={undefined}
               onChange={onAgencyChange}
               label='Agency' />
-            <div className="flex w-full justify-center items-center">
+            <div className="flex mx-auto items-center gap-3">
               <input
                 type="checkbox"
                 name="updateSignup"
                 defaultChecked
-                className="h-4 w-4 mx-3 rounded-full shadow"
+                className="h-6 w-6 border rounded-md"
               ></input>
               <label htmlFor="updateSignup">
                 Would you like to get updates?

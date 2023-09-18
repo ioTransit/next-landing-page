@@ -98,7 +98,7 @@ export default function GTFSToGeoJson() {
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
       </Head>
-      <div className="h-full w-full relative pb-20">
+      <div className="h-full w-full relative pb-20 gap-10 grid md:flex md:flex-row-reverse md:items-start">
         <ToastContainer
           position="bottom-right"
           autoClose={5000}
@@ -110,12 +110,19 @@ export default function GTFSToGeoJson() {
           pauseOnHover
           theme="light"
         />
-        <h2 className=" text-center text-3xl pt-12 text-gray-700">
-          Convert your GTFS files to GeoJSON
-        </h2>
+        <div className="grid w-3/4 max-w-[500px] mx-auto md:mt-10 gap-10">
+          <h2 className="text-center text-4xl block text-tcOrange drop-shadow-md bold">
+            Convert your GTFS files to GeoJSON
+          </h2>
+          <p className=" text-gray-700 text-center text-2xl">
+            We're out here working hard to bring the best transit collaboration software to you and want 
+            to hear from you about you about how we can make transit better.
+            Sign up below to stay informed and we'll reach out when we are ready.
+          </p>
+        </div>
         <form
           id={gtfsToGeojsonFormId}
-          className="max-w-xl mt-16 grid w-full sm:w-3/5 lg:w-2/5 inset-0 bg-gray-200 rounded-lg p-10 m-auto  text-gray-700"
+          className="max-w-xl grid w-full sm:w-3/5 lg:w-2/5 inset-0 bg-gray-200 rounded-lg p-10 m-auto text-gray-700"
           // @ts-expect-error idk what is going on 
           onSubmit={handleSubmit(onSubmit)} // eslint-disable-line
         >
@@ -163,12 +170,12 @@ export default function GTFSToGeoJson() {
               <input {...register('url')} type="text" className="h-6 py-6 px-4 w-full border rounded-md"
               />
             </label>
-            <div className="flex w-full justify-center items-center">
+            <div className="flex mx-auto items-center gap-3">
               <input
                 type="checkbox"
                 name="updateSignup"
                 defaultChecked
-                className="h-6 py-6 px-4 w-full border rounded-md"
+                className="h-6 w-6 border rounded-md"
               ></input>
               <label htmlFor="updateSignup">
                 Would you like to get updates?
