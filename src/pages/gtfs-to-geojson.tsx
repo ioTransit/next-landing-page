@@ -97,6 +97,9 @@ export default function GTFSToGeoJson() {
       const _agencies = gtfsFeeds.filter((agency) => agency.region === e.id && agency.country === country.id)
       setAgencies(_agencies)
       setValue("agency", null)
+
+
+      
     }
   }
 
