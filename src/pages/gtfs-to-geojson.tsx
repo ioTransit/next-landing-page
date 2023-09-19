@@ -137,7 +137,7 @@ export default function GTFSToGeoJson() {
           <h2 className="text-center text-4xl block text-tcOrange drop-shadow-md bold">
             Convert your GTFS files to GeoJSON
           </h2>
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/U4MgpC9tn4o?si=bPKPCuM9oykApYOU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/U4MgpC9tn4o?si=bPKPCuM9oykApYOU" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
         </div>
         <form
           id={gtfsToGeojsonFormId}
