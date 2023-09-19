@@ -76,7 +76,7 @@ export default function JoinPage() {
   return (
     <>
       <MetaHeader />
-      <div className="h-full w-full relative pb-20 gap-10 grid md:flex md:flex-row-reverse md:items-start">
+      <div className="mx-auto h-full w-full max-w-[1000px] relative pb-20 gap-10 grid md:flex md:flex-row-reverse md:items-start">
         <ToastContainer
           position="bottom-right"
           autoClose={5000}
@@ -88,7 +88,7 @@ export default function JoinPage() {
           pauseOnHover
           theme="light"
         />
-        <div className="grid w-3/4 max-w-[500px] mx-auto md:mt-10 gap-10">
+        <div className="grid w-full md:w-1/3 max-w-[500px] mx-auto md:mt-10 gap-10">
           <h2 className="text-center text-4xl block text-tcOrange drop-shadow-md bold">
             {"We're just getting started"}
           </h2>
@@ -100,7 +100,7 @@ export default function JoinPage() {
         </div>
         <form
           id={agencySignupId}
-          className="max-w-xl grid w-full sm:w-3/5 lg:w-2/5 inset-0 bg-gray-200 rounded-lg p-10 m-auto text-gray-700"
+          className="max-w-xl grid w-full sm:w-3/5 lg:w-1/2 inset-0 bg-gray-200 rounded-lg p-10 m-auto text-gray-700"
           // @ts-expect-error idk what is going on 
           onSubmit={handleSubmit(onSubmit)} // eslint-disable-line
         >
