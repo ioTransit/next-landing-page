@@ -137,11 +137,7 @@ export default function GTFSToGeoJson() {
           <h2 className="text-center text-4xl block text-tcOrange drop-shadow-md bold">
             Convert your GTFS files to GeoJSON
           </h2>
-          <p className=" text-gray-700 text-center text-2xl">
-            We're out here working hard to bring the best transit collaboration software to you and want
-            to hear from you about you about how we can make transit better.
-            Sign up below to stay informed and we'll reach out when we are ready.
-          </p>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/U4MgpC9tn4o?si=bPKPCuM9oykApYOU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
         <form
           id={gtfsToGeojsonFormId}
