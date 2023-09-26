@@ -93,9 +93,7 @@ export default function JoinPage() {
             {"We're just getting started"}
           </h2>
           <p className=" text-gray-700 text-center text-2xl">
-            We're out here working hard to bring the best transit collaboration software to you and want 
-            to hear from you about you about how we can make transit better.
-            Sign up below to stay informed and we'll reach out when we are ready.
+            We're dedicated to delivering top-notch transit collaboration software, and your feedback is essential in making transit better. Sign up below to stay updated, and we'll reach out when we're ready.
           </p>
         </div>
         <form

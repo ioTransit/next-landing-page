@@ -159,7 +159,6 @@ export default function GTFSToGeoJson() {
               />
             </label>
             {errors.name?.message && typeof errors.name?.message === "string" && <p className="text-red-500 px-3">{errors.name?.message}</p>}
-            {/* <ValidatedInput type="email" name="email" label="Email" error={errors.email?.message} /> */}
             <label className="pb-2" htmlFor={'email'}>
               Email
               <input
