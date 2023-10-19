@@ -146,7 +146,7 @@ export default function GTFSToGeoJson() {
           onSubmit={handleSubmit(onSubmit)} // eslint-disable-line
         >
           <div className="w-full  gap-5 grid">
-            <label className="pb-2" htmlFor={'name'}>
+            <label htmlFor={'name'}>
               Name
               <input
                 {...register('name')}
@@ -156,7 +156,7 @@ export default function GTFSToGeoJson() {
               />
             </label>
             {errors.name?.message && typeof errors.name?.message === "string" && <p className="text-red-500 px-3">{errors.name?.message}</p>}
-            <label className="pb-2" htmlFor={'email'}>
+            <label htmlFor={'email'}>
               Email
               <input
                 {...register('email')}

@@ -103,25 +103,27 @@ export default function JoinPage() {
           onSubmit={handleSubmit(onSubmit)} // eslint-disable-line
         >
           <div className="w-full  gap-5 grid">
-            <label className="mx-2 pb-2" htmlFor={'name'}>
+            <label htmlFor={'name'}>
               Name
+              <input
+                {...register('name')}
+                type='string'
+                name='name'
+                className="h-6 p-6 w-full border rounded-md"
+              />
             </label>
-            <input
-              {...register('name')}
-              type='string'
-              name='name'
-              className="h-6 p-6 w-full border rounded-md"
-            />
+
             {errors.name?.message && typeof errors.name?.message === "string" && <p className="text-red-500 px-3">{errors.name?.message}</p>}
-            <label className="mx-2 pb-2" htmlFor={'email'}>
+            <label htmlFor={'email'}>
               Email
+              <input
+                {...register('email')}
+                type='email'
+                name='email'
+                className="h-6 p-6 w-full border rounded-md"
+              />
             </label>
-            <input
-              {...register('email')}
-              type='email'
-              name='email'
-              className="h-6 p-6 w-full border rounded-md"
-            />
+
             {errors.email?.message && typeof errors.email?.message === "string" && <p className="text-red-500 px-3">{errors.email?.message}</p>}
             <Select
               options={states}
