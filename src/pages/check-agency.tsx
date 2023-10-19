@@ -43,7 +43,7 @@ export default function JoinPage() {
   const onSubmit: SubmitHandler<CheckValidatorType> = async (data) => {
     try {
 
-      const resp = await axios.post("https://hook.us1.make.com/3rd3kck1q73jx0pq5ddu2nrygkrnx63a", {
+      const resp = await axios.post("https://hook.us1.make.com/gfs38jka9key0kg5es19t1299127stgr", {
         email: data.email,
         name: data.name,
         agency: agency?.name,
