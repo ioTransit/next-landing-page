@@ -35,8 +35,8 @@ export default async function handler(req, res) {
             zip.readAsText(tripsFile.entryName)
           )
         : null;
-    const tripsGeojson = stopsFile
-      ? gtfs2geojson.stops(zip.readAsText(stopsFile.entryName))
+    const tripsGeojson = tripsFile
+      ? gtfs2geojson.lines(zip.readAsText(tripsFile.entryName))
       : null;
 
     return res.status(200).json({ stopsGeojson, routesGeojson, tripsGeojson });
