@@ -36,6 +36,14 @@ export const checkValidator = z.object({
 type CheckValidatorType = z.infer<typeof checkValidator>;
 
 export default function GTFSToGeoJson() {
+  const {
+    handleSubmit,
+    formState: { errors },
+    register,
+    setValue,
+    getValues,
+  } = useForm();
+
   const [verified, setVerified] = useState(false);
   const [_agencies, setAgencies] = useState<typeof gtfsFeeds | null>(null);
   const [regions, setRegions] = useState<{ id: string; name: string }[] | null>(
@@ -98,8 +106,10 @@ export default function GTFSToGeoJson() {
     if (!e.id) {
       return;
     } else {
+      setValue("country", e);
       const feeds = gtfsFeeds.filter((feed) => feed.country === e.id);
       setAgencies(feeds);
+      setValue("region", null);
       const _regions = feeds.reduce(
         (acc: { id: string; name: string }[], feed) => {
           if (!acc.find((region) => region.id === feed.region)) {
@@ -132,6 +142,7 @@ export default function GTFSToGeoJson() {
       return;
     } else {
       setAgency(e);
+      setValue("url", e.url);
     }
   };
   return (
@@ -182,20 +193,34 @@ export default function GTFSToGeoJson() {
             <label htmlFor={"name"}>
               Name
               <input
+                {...register("name")}
                 type="string"
                 name="name"
                 className="h-6 w-full rounded-md border px-4 py-6"
               />
             </label>
+            {errors.name?.message &&
+              typeof errors.name?.message === "string" && (
+                <p className="px-3 text-red-500">{errors.name?.message}</p>
+              )}
             <label htmlFor={"email"}>
               Email
               <input
+                {...register("email")}
                 type="email"
                 name="email"
                 className="h-6 w-full rounded-md border px-4 py-6"
               />
             </label>
-            <input hidden value={agency ? agency?.country : undefined} />
+            {errors.email?.message &&
+              typeof errors.email?.message === "string" && (
+                <p className="px-3 text-red-500">{errors.email?.message}</p>
+              )}
+            <input
+              hidden
+              {...register("country")}
+              value={agency ? agency?.country : undefined}
+            />
             <Select
               options={countries}
               name="country"
@@ -203,7 +228,11 @@ export default function GTFSToGeoJson() {
               label="Country"
               onChange={onCountryChange}
             />
-            <input hidden value={agency ? agency?.region : undefined} />
+            <input
+              hidden
+              {...register("region")}
+              value={agency ? agency?.region : undefined}
+            />
             <Select
               options={regions || []}
               name="region"
@@ -212,7 +241,11 @@ export default function GTFSToGeoJson() {
               label="Region"
               onChange={onRegionChange}
             />
-            <input hidden value={agency ? agency?.url : undefined} />
+            <input
+              hidden
+              {...register("agency")}
+              value={agency ? agency?.url : undefined}
+            />
             <Select
               options={_agencies || []}
               name="agency"
@@ -221,7 +254,11 @@ export default function GTFSToGeoJson() {
               onChange={onAgencyChange}
               label="Agency"
             />
-            <input value={verified.toString()} type="hidden" />
+            <input
+              {...register("verified")}
+              value={verified.toString()}
+              type="hidden"
+            />
             <div className="mx-auto flex items-center gap-3">
               <input
                 type="checkbox"
