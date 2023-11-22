@@ -1,43 +1,16 @@
 import { z } from "zod";
-import AdmZip from "adm-zip";
-import axios from "axios";
-import gtfs2geojson from "gtfs2geojson";
+import { Gtfs } from "gtfs-parser";
 
 export default async function handler(req, res) {
   try {
     const { url } = z.object({ url: z.string() }).parse(JSON.parse(req.body));
 
-    const body = await axios.get(url, {
-      responseType: "arraybuffer",
-    });
-    const zip = new AdmZip(body.data); // eslint-disable-line
-    const zipEntries = zip.getEntries(); // eslint-disable-line
-    if (!zipEntries || !zipEntries.length) return;
+    const gtfs = new Gtfs(url);
+    await gtfs.init();
 
-    const getFile = (fileName) =>
-      zipEntries.find((zipEntry) => {
-        return zipEntry.entryName === fileName;
-      });
-
-    const stopsFile = getFile("stops.txt");
-    const tripsFile = getFile("trips.txt");
-    const routesFile = getFile("routes.txt");
-    const shapesFile = getFile("shapes.txt");
-
-    const stopsGeojson = stopsFile
-      ? gtfs2geojson.stops(zip.readAsText(stopsFile.entryName))
-      : null;
-    const routesGeojson =
-      tripsFile && routesFile && shapesFile
-        ? gtfs2geojson.routes(
-            zip.readAsText(shapesFile.entryName),
-            zip.readAsText(routesFile.entryName),
-            zip.readAsText(tripsFile.entryName)
-          )
-        : null;
-    const tripsGeojson = tripsFile
-      ? gtfs2geojson.lines(zip.readAsText(tripsFile.entryName))
-      : null;
+    const stopsGeojson = await gtfs.stopsToGeojson();
+    const tripsGeojson = await gtfs.tripsToGeojson();
+    const routesGeojson = await gtfs.routesToGeojson();
 
     return res.status(200).json({ stopsGeojson, routesGeojson, tripsGeojson });
   } catch (e) {
