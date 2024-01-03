@@ -49,9 +49,9 @@ export default function HomePage() {
         >
           <div
             id="workflow"
-            className="z-30 mx-auto grid justify-between  gap-10 px-20 py-2 md:gap-20 lg:flex"
+            className="z-30 mx-auto grid justify-between  gap-10 px-20 py-2 md:gap-20 xl:flex"
           >
-            <div className="mx-auto grid w-full max-w-[550px] gap-3 sm:w-3/4 lg:w-1/4">
+            <div className="mx-auto grid w-full max-w-[370px] gap-3 sm:w-3/4 xl:w-1/4">
               <h3 className="text-center text-3xl font-extrabold md:text-4xl">
                 Respond
               </h3>
@@ -61,8 +61,8 @@ export default function HomePage() {
                 }
               </p>
             </div>
-            <h3 className="m-auto rotate-90 text-6xl lg:rotate-0 ">👉</h3>
-            <div className="mx-auto grid w-full max-w-[550px] gap-3 sm:w-3/4 lg:w-1/4">
+            <h3 className="m-auto rotate-90 text-6xl xl:rotate-0 ">👉</h3>
+            <div className="mx-auto grid w-full max-w-[370px] gap-3 sm:w-3/4 xl:w-1/4">
               <h3 className="text-center text-3xl font-extrabold lg:text-4xl">
                 Summarize✨
               </h3>
@@ -71,8 +71,8 @@ export default function HomePage() {
                 summary in email on a regular schedule
               </p>
             </div>
-            <h3 className="m-auto rotate-90 text-6xl lg:rotate-0">👉</h3>
-            <div className="mx-auto grid w-full max-w-[550px] gap-3 sm:w-3/4 lg:w-1/4">
+            <h3 className="m-auto rotate-90 text-6xl xl:rotate-0">👉</h3>
+            <div className="mx-auto grid w-full max-w-[370px] gap-3 sm:w-3/4 xl:w-1/4">
               <h3 className="text-center text-3xl font-extrabold lg:text-4xl">
                 Plan
               </h3>

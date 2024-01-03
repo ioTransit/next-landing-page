@@ -92,7 +92,7 @@ export default function JoinPage() {
           pauseOnHover
           theme="light"
         />
-        <div className="mx-auto grid w-full max-w-[500px] gap-10 md:mt-10 md:w-1/3">
+        <div className="mx-auto flex w-full max-w-[500px] flex-col items-center justify-center gap-10 md:my-auto md:w-1/3">
           <h2 className="bold block text-center text-4xl text-tcOrange drop-shadow-md">
             {"We're just getting started"}
           </h2>
@@ -108,6 +108,9 @@ export default function JoinPage() {
           // @ts-expect-error idk what is going on
           onSubmit={handleSubmit(onSubmit)} // eslint-disable-line
         >
+          <h2 className="bold mb-6 block text-center text-3xl text-gray-600">
+            {"Let's Stay in Touch!"}
+          </h2>
           <div className="grid  w-full gap-5">
             <label htmlFor={"name"}>
               Name
