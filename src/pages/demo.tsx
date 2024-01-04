@@ -48,17 +48,17 @@ export default function JoinPage() {
   } = useForm();
   const onSubmit: SubmitHandler<CheckValidatorType> = async (data) => {
     try {
-      const resp = { status: 200 };
-      // const resp = await axios.post(
-      //   "https://hook.us1.make.com/gfs38jka9key0kg5es19t1299127stgr",
-      //   {
-      //     email: data.email,
-      //     name: data.name,
-      //     // agency: agency?.name,
-      //     // city: agency?.city,
-      //     // state: agency?.state,
-      //   }
-      // );
+      // const resp = { status: 200 };
+      const resp = await axios.post(
+        "https://hook.us1.make.com/gfs38jka9key0kg5es19t1299127stgr",
+        {
+          email: data.email,
+          name: data.name,
+          // agency: agency?.name,
+          // city: agency?.city,
+          // state: agency?.state,
+        }
+      );
       if (resp.status === 200) {
         toast.success("Thanks for signing up!");
         push("/demo?completed=true");
@@ -183,10 +183,7 @@ export default function JoinPage() {
                   sitekey={env.NEXT_PUBLIC_RECAPTCHA}
                   onChange={(e) => setVerified(e ? true : false)}
                 />
-                <Button
-                  // disabled={!verified ? true : false}
-                  type="submit"
-                >
+                <Button disabled={!verified ? true : false} type="submit">
                   Submit
                 </Button>
               </div>
