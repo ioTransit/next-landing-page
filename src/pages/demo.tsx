@@ -38,7 +38,6 @@ export default function JoinPage() {
   const [verified, setVerified] = useState(false);
   const { query: searchParams, push } = useRouter();
 
-  console.log(searchParams);
   // const [_agencies, setAgencies] = useState<typeof agencies | null>(null);
   // const [agency, setAgency] = useState<SelectItem | null>(null);
 
@@ -194,7 +193,7 @@ export default function JoinPage() {
             </form>
           </>
         ) : (
-          "You submitted the form"
+          <div className="m-auto flex h-[500px] w-[750px] max-w-[90%] rounded-lg bg-blue-300 md:max-w-[80%]"></div>
         )}
       </div>
     </>
