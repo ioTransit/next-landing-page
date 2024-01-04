@@ -33,10 +33,10 @@ export default function HomePage() {
               </p>
               <div className=" mt-10 sm:flex">
                 <Link
-                  href={"/check-agency"}
+                  href={"/demo"}
                   className="flex h-16 items-center justify-center rounded-md border border-transparent bg-tcOrange px-4 py-3 text-xl font-medium text-white shadow-sm drop-shadow-md transition-colors hover:bg-yellow-400 sm:px-8"
                 >
-                  Request Early Access
+                  Check out our demo
                 </Link>
               </div>
             </div>
@@ -117,10 +117,10 @@ export default function HomePage() {
                     <p className="text-2xl">{item.p}</p>
                     <div className="mt-10 h-16 sm:flex">
                       <Link
-                        href={"/check-agency"}
+                        href={"/demo"}
                         className="flex items-center justify-center rounded-md border border-transparent bg-tcOrange px-4 py-3 text-xl font-medium text-white shadow-sm drop-shadow-md transition-colors hover:bg-yellow-400 sm:px-8"
                       >
-                        Request Early Access
+                        Check out our demo
                       </Link>
                     </div>
                   </div>
@@ -136,16 +136,50 @@ export default function HomePage() {
             );
           })}
           <div className="m-auto w-full justify-center gap-4" id="pricing">
+            <div className="mx-auto grid w-1/2 gap-6 lg:w-full">
+              <h2 className="text-center text-3xl font-bold">
+                Early Bird Pricing
+              </h2>
+              <h3 className="mx-auto text-2xl">60 Day free trial</h3>
+              <div className="m-auto mb-20 flex flex-col justify-center gap-5 lg:flex-row">
+                <div className="flex h-60 w-60 flex-col items-center justify-center rounded-lg border-2 bg-white p-4 text-gray-600 drop-shadow-sm">
+                  <h3 className="text-3xl">Circulator</h3>
+                  <h4 className="my-3 text-2xl font-medium text-black">
+                    <span className="strikethrough text-red-600">$15k</span>{" "}
+                    $12k
+                  </h4>
+                  <span className="m-0 p-0 text-xl">Per year</span>
+                  <span className="m-0 p-0 text-xl ">1-5 Users</span>
+                </div>
+                <div className="flex h-60 w-60 flex-col items-center justify-center rounded-lg border-2 bg-white p-4 text-gray-600 drop-shadow-sm">
+                  <h3 className="text-3xl">Express</h3>
+                  <h4 className="my-3 text-2xl font-medium text-black">
+                    <span className="strikethrough text-red-600">$30k</span>{" "}
+                    $24k
+                  </h4>
+                  <span className="m-0 p-0 text-xl">Per year</span>
+                  <span className="m-0 p-0 text-xl ">5-10 Users</span>
+                </div>
+                <div className="flex h-60 w-60 flex-col items-center justify-center rounded-lg border-2 bg-white p-4 text-gray-600 drop-shadow-sm">
+                  <h3 className="text-3xl">Metro</h3>
+                  <h4 className="my-3 text-2xl font-medium text-black">
+                    Contact
+                  </h4>
+                  <span className="m-0 p-0 text-xl">Per year</span>
+                  <span className="m-0 p-0 text-xl ">10+ Users</span>
+                </div>
+              </div>
+            </div>
             <div className="mx-auto grid w-1/2 gap-6">
               <h2 className="text-center text-3xl font-bold">
-                We're launching soon
+                Want to learn more?
               </h2>
               <div className="m-auto mb-20 flex justify-center">
                 <Link
-                  href={"/check-agency"}
+                  href={"/demo"}
                   className="flex h-16 items-center justify-center rounded-md border border-transparent bg-tcOrange px-4 py-3 text-xl font-medium text-white shadow-sm drop-shadow-md transition-colors hover:bg-yellow-400 sm:px-8"
                 >
-                  Request Early Access
+                  Check out our demo
                 </Link>
               </div>
             </div>
