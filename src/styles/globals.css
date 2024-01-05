@@ -2,16 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  @apply text-gray-700;
+}
+
 .background-rect {
-  background-image: url('../../public/images/background.svg');
-  background-repeat:space repeat-y;
+  background-image: url("../../public/images/background.svg");
+  background-repeat: space repeat-y;
   font-family: Arial, Helvetica, sans-serif;
   display: grid;
 }
 
 #hubspot-messages-iframe-container {
   position: absolute !important;
-  bottom:0 !important;
+  bottom: 0 !important;
   right: 0 !important;
   z-index: 1000 !important;
 }
+
+.strikethrough {
+  background: linear-gradient(
+    to left top,
+    transparent 47.75%,
+    currentColor 49.5%,
+    currentColor 50.5%,
+    transparent 52.25%
+  );
+}
+
