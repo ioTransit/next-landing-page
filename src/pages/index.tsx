@@ -148,8 +148,7 @@ export default function HomePage() {
                 >
                   <h3 className="text-3xl">Circulator</h3>
                   <h4 className="my-3 text-2xl font-medium text-black">
-                    <span className="strikethrough text-red-600">$15k</span>{" "}
-                    $12k
+                    <span className="strikethrough text-red-600">$12k</span> $8k
                   </h4>
                   <span className="m-0 p-0 text-xl">Per year</span>
                   <span className="m-0 p-0 text-xl ">1-5 Users</span>
@@ -164,8 +163,8 @@ export default function HomePage() {
                   <div className="flex h-60 w-60 flex-col items-center justify-center rounded-b-lg border-2 border-t-0 border-gray-400 bg-white p-4 text-gray-600 drop-shadow-sm">
                     <h3 className="text-3xl">Express</h3>
                     <h4 className="my-3 text-2xl font-medium text-black">
-                      <span className="strikethrough text-red-600">$30k</span>{" "}
-                      $24k
+                      <span className="strikethrough text-red-600">$24k</span>{" "}
+                      $18k
                     </h4>
                     <span className="m-0 p-0 text-xl">Per year</span>
                     <span className="m-0 p-0 text-xl ">5-10 Users</span>
