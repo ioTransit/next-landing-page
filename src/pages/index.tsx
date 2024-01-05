@@ -135,14 +135,17 @@ export default function HomePage() {
               </div>
             );
           })}
-          <div className="m-auto w-full justify-center gap-4" id="pricing">
-            <div className="mx-auto grid w-1/2 gap-6 lg:w-full">
+          <div className="m-auto w-full gap-4" id="pricing">
+            <div className="m-auto grid w-1/2 items-center gap-6 lg:w-full">
               <h2 className="text-center text-3xl font-bold">
                 Early Bird Pricing
               </h2>
               <h3 className="mx-auto text-2xl">60 Day free trial</h3>
-              <div className="m-auto mb-20 flex flex-col justify-center gap-5 lg:flex-row">
-                <div className="flex h-60 w-60 flex-col items-center justify-center rounded-lg border-2 bg-white p-4 text-gray-600 drop-shadow-sm">
+              <div className="m-auto mb-20 flex flex-col items-center justify-center gap-5 lg:flex-row">
+                <Link
+                  href="/demo"
+                  className="flex h-60 w-60 flex-col items-center justify-center rounded-lg border-2 border-gray-300 bg-white p-4 text-gray-600 drop-shadow-sm transition-all hover:cursor-pointer hover:drop-shadow-lg"
+                >
                   <h3 className="text-3xl">Circulator</h3>
                   <h4 className="my-3 text-2xl font-medium text-black">
                     <span className="strikethrough text-red-600">$15k</span>{" "}
@@ -150,24 +153,35 @@ export default function HomePage() {
                   </h4>
                   <span className="m-0 p-0 text-xl">Per year</span>
                   <span className="m-0 p-0 text-xl ">1-5 Users</span>
-                </div>
-                <div className="flex h-60 w-60 flex-col items-center justify-center rounded-lg border-2 bg-white p-4 text-gray-600 drop-shadow-sm">
-                  <h3 className="text-3xl">Express</h3>
-                  <h4 className="my-3 text-2xl font-medium text-black">
-                    <span className="strikethrough text-red-600">$30k</span>{" "}
-                    $24k
-                  </h4>
-                  <span className="m-0 p-0 text-xl">Per year</span>
-                  <span className="m-0 p-0 text-xl ">5-10 Users</span>
-                </div>
-                <div className="flex h-60 w-60 flex-col items-center justify-center rounded-lg border-2 bg-white p-4 text-gray-600 drop-shadow-sm">
+                </Link>
+                <Link
+                  href="/demo"
+                  className="flex flex-col justify-center bg-white text-gray-600 drop-shadow-sm transition-all hover:cursor-pointer  hover:drop-shadow-lg"
+                >
+                  <span className="w-full rounded-t-lg bg-purple-500 text-center text-lg text-white">
+                    Popular
+                  </span>
+                  <div className="flex h-60 w-60 flex-col items-center justify-center rounded-b-lg border-2 border-t-0 border-gray-400 bg-white p-4 text-gray-600 drop-shadow-sm">
+                    <h3 className="text-3xl">Express</h3>
+                    <h4 className="my-3 text-2xl font-medium text-black">
+                      <span className="strikethrough text-red-600">$30k</span>{" "}
+                      $24k
+                    </h4>
+                    <span className="m-0 p-0 text-xl">Per year</span>
+                    <span className="m-0 p-0 text-xl ">5-10 Users</span>
+                  </div>
+                </Link>
+                <Link
+                  href="/demo"
+                  className="flex h-60 w-60 flex-col items-center justify-center rounded-lg border-2 border-gray-300 bg-white p-4 text-gray-600 drop-shadow-sm transition-all hover:cursor-pointer hover:cursor-pointer hover:drop-shadow-lg"
+                >
                   <h3 className="text-3xl">Metro</h3>
                   <h4 className="my-3 text-2xl font-medium text-black">
                     Contact
                   </h4>
                   <span className="m-0 p-0 text-xl">Per year</span>
                   <span className="m-0 p-0 text-xl ">10+ Users</span>
-                </div>
+                </Link>
               </div>
             </div>
             <div className="mx-auto grid w-1/2 gap-6">
