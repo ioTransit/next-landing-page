@@ -136,12 +136,12 @@ export default function HomePage() {
             );
           })}
           <div className="m-auto w-full gap-4" id="pricing">
-            <div className="m-auto grid w-1/2 items-center gap-6 lg:w-full">
+            <div className="m-auto mb-20 grid w-1/2 items-center gap-6 lg:w-full ">
               <h2 className="text-center text-3xl font-bold">
                 Early Bird Pricing
               </h2>
               <h3 className="mx-auto text-2xl">60 Day free trial</h3>
-              <div className="m-auto mb-20 flex flex-col items-center justify-center gap-5 lg:flex-row">
+              <div className="m-auto flex flex-col items-center justify-center gap-5 lg:flex-row">
                 <Link
                   href="/demo"
                   className="flex h-60 w-60 flex-col items-center justify-center rounded-lg border-2 border-gray-300 bg-white p-4 text-gray-600 drop-shadow-sm transition-all hover:cursor-pointer hover:drop-shadow-lg"
@@ -182,6 +182,14 @@ export default function HomePage() {
                   <span className="m-0 p-0 text-xl ">10+ Users</span>
                 </Link>
               </div>
+              <div className="">
+                <ul className="mx-auto list-decimal text-center text-lg leading-8">
+                  <li>Collect and Comunicate about on going issues</li>
+                  <li>Visualize vehicles in real-time with GTFS-RT</li>
+                  <li>Email digests for route and stop issues</li>
+                  <li>Retain issues and communication for federal reporting</li>
+                </ul>
+              </div>
             </div>
             <div className="mx-auto grid w-1/2 gap-6">
               <h2 className="text-center text-3xl font-bold">
@@ -190,7 +198,7 @@ export default function HomePage() {
               <div className="m-auto mb-20 flex justify-center">
                 <Link
                   href={"/demo"}
-                  className="flex h-16 items-center justify-center rounded-md border border-transparent bg-tcOrange px-4 py-3 text-xl font-medium text-white shadow-sm drop-shadow-md transition-colors hover:bg-yellow-400 sm:px-8"
+                  className="flex h-16 items-center justify-center rounded-md border border-transparent bg-tcOrange px-4 py-3 text-center text-xl font-medium text-white shadow-sm drop-shadow-md transition-colors hover:bg-yellow-400 sm:px-8"
                 >
                   Check out our demo
                 </Link>
