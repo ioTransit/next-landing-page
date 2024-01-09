@@ -1,11 +1,9 @@
 import { useState } from "react";
-import { Select, type SelectItem } from "~/components/select";
 import { z } from "zod";
 import { ToastContainer, toast } from "react-toastify";
 import { Button } from "~/components/button";
 import ReCAPTCHA from "react-google-recaptcha";
 import { type SubmitHandler, useForm } from "react-hook-form";
-import { agencies, states } from "~/config";
 import axios from "axios";
 import { env } from "~/env.mjs";
 import { MetaHeader } from "~/components/meta";
@@ -21,12 +19,6 @@ export const checkValidator = z.object({
     .min(5, { message: "Email is required" })
     .email("Must be a valid email"),
   name: z.string().min(3),
-  // state: z
-  //   .string()
-  //   .transform((data) =>
-  //     z.object({ name: z.string(), id: z.string() }).parse(JSON.parse(data))
-  //   ),
-  // agency: z.string(),
   updateSignup: z.enum(["on"]).optional(),
   verified: z.enum(["true"]),
 });
@@ -38,9 +30,6 @@ export default function JoinPage() {
   const [verified, setVerified] = useState(false);
   const { query: searchParams, push } = useRouter();
 
-  // const [_agencies, setAgencies] = useState<typeof agencies | null>(null);
-  // const [agency, setAgency] = useState<SelectItem | null>(null);
-
   const {
     handleSubmit,
     formState: { errors },
@@ -48,15 +37,11 @@ export default function JoinPage() {
   } = useForm();
   const onSubmit: SubmitHandler<CheckValidatorType> = async (data) => {
     try {
-      // const resp = { status: 200 };
       const resp = await axios.post(
         "https://hook.us1.make.com/gfs38jka9key0kg5es19t1299127stgr",
         {
           email: data.email,
           name: data.name,
-          // agency: agency?.name,
-          // city: agency?.city,
-          // state: agency?.state,
         }
       );
       if (resp.status === 200) {
@@ -67,21 +52,6 @@ export default function JoinPage() {
       toast.error("Something went wrong");
     }
   };
-
-  // const onStateChange = (e: SelectItem) => {
-  //   if (!e.id) {
-  //     return;
-  //   } else {
-  //     setAgencies(agencies.filter((agency) => agency.state === e.id));
-  //   }
-  // };
-  // const onAgencyChange = (e: SelectItem) => {
-  //   if (!e.name) {
-  //     return;
-  //   } else {
-  //     setAgency(e);
-  //   }
-  // };
 
   return (
     <>
@@ -144,23 +114,6 @@ export default function JoinPage() {
                     className="h-6 w-full rounded-md border p-6"
                   />
                 </label>
-
-                {/* {errors.email?.message && typeof errors.email?.message === "string" && <p className="text-red-500 px-3">{errors.email?.message}</p>} */}
-                {/* <Select */}
-                {/*   options={states} */}
-                {/*   name="state" */}
-                {/*   error={undefined} */}
-                {/*   label='State' */}
-                {/*   onChange={onStateChange} */}
-                {/* /> */}
-                {/* <input hidden {...register('state')} value={agency ? agency?.state : undefined} /> */}
-                {/* <Select */}
-                {/*   options={_agencies ?? []} */}
-                {/*   disabled={!_agencies || _agencies?.length === 0} */}
-                {/*   name='agency' */}
-                {/*   error={undefined} */}
-                {/*   onChange={onAgencyChange} */}
-                {/*   label='Agency' /> */}
                 <div className="mx-auto flex items-center gap-3">
                   <input
                     type="checkbox"
@@ -190,7 +143,11 @@ export default function JoinPage() {
             </form>
           </>
         ) : (
-          <div className="m-auto flex h-[500px] w-[750px] max-w-[90%] rounded-lg bg-blue-300 md:max-w-[80%]"></div>
+          <div className="m-auto flex h-[500px] w-[750px] max-w-[90%] items-center rounded-lg text-center md:max-w-[80%]">
+            <h2 className="text-4xl">
+              Thanks for your interest! We'll reach out soon!
+            </h2>
+          </div>
         )}
       </div>
     </>
